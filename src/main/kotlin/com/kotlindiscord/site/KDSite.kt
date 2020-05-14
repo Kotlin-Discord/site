@@ -1,7 +1,14 @@
 package com.kotlindiscord.site
 
-// Sometimes you just want to commit the layout.
-@Suppress("EmptyClassBlock")
-class KDSite {
+import io.ktor.application.Application
+import io.ktor.application.install
+import io.ktor.auth.Authentication
+import io.ktor.auth.form
 
+fun Application.main() {
+    install(Authentication) {
+        form("form") {
+
+        }
+    }
 }

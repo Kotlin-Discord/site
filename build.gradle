@@ -68,7 +68,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "com.kotlindiscord.site.KDSiteKt"
+    mainClassName = "io.ktor.server.jetty.EngineMain"
 }
 
 compileKotlin {
@@ -90,7 +90,7 @@ gitHooks {
 jar {
     manifest {
         attributes(
-                "Main-Class": "com.kotlindiscord.site.KDSiteKt"
+                "Main-Class": "io.ktor.server.jetty.EngineMain"
         )
     }
 }
