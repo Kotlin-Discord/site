@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "fomantic-ui": "^2.8.4"
+    "fomantic-ui": "^2.8.4",
+    "jquery": "^3.5.1"
   },
   "devDependencies": {},
   "scripts": {

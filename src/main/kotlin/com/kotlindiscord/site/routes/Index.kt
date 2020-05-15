@@ -6,5 +6,5 @@ import io.ktor.pebble.PebbleContent
 import io.ktor.response.respond
 
 val indexGet = route {
-    call.respond(PebbleContent("index.html.peb", mapOf("who" to "world")))
+    call.respond(PebbleContent("pages/index.html.peb", mapOf("who" to "world")))
 }

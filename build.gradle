@@ -99,6 +99,10 @@ processResources {
     from ("build/semantic/") {
         into "static"
     }
+
+    from ("node_modules/jquery/dist/") {
+        into "static"
+    }
 }
 
 shadowJar {

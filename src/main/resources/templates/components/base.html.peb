@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Page</title>
+
+    <link rel="stylesheet" href="/static/semantic.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/semantic.js"></script>
+</head>
+<body>
+{% block body %}
+<div class="ui container">
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}
+</body>
+</html>
