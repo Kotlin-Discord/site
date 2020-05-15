@@ -7,6 +7,7 @@ import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.auth.*
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.apache.Apache
 import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 import io.ktor.locations.location
@@ -33,7 +34,7 @@ val discordProvider = OAuthServerSettings.OAuth2ServerSettings(
 fun installAuth(app: Application) {
     app.install(Authentication) {
         oauth("discord") {
-            client = HttpClient()
+            client = HttpClient(Apache)
             providerLookup = { discordProvider }
             urlProvider = { url(LoginLocation()) }
         }
