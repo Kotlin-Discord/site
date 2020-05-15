@@ -117,3 +117,5 @@ fabric.properties
 
 config.toml
 docs/build
+src/semantic
+node_modules

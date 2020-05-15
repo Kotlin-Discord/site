@@ -95,6 +95,12 @@ jar {
     }
 }
 
+processResources {
+    from ("build/semantic/") {
+        into "static"
+    }
+}
+
 shadowJar {
     transform(ServiceFileTransformer) {
         path = 'META-INF/services'
