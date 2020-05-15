@@ -1,14 +1,14 @@
 package com.kotlindiscord.site
 
+import com.kotlindiscord.site.components.*
 import io.ktor.application.Application
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.form
+import io.ktor.locations.KtorExperimentalLocationsAPI
 
+@KtorExperimentalLocationsAPI
 fun Application.main() {
-    install(Authentication) {
-        form("form") {
-
-        }
-    }
+    installAuth(this)
+    installJson(this)
+    installLocations(this)
+    installSessions(this)
+    installWebsockets(this)
 }

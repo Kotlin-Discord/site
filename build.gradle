@@ -46,7 +46,7 @@ dependencies {
 
     implementation "io.github.microutils:kotlin-logging:1.7.9"
 
-    implementation "io.ktor:ktor-auth:$ktorVersion"
+    implementation "io.ktor:ktor-components:$ktorVersion"
     implementation "io.ktor:ktor-gson:$ktorVersion"
     implementation "io.ktor:ktor-locations:$ktorVersion"
     implementation "io.ktor:ktor-server-sessions:$ktorVersion"
