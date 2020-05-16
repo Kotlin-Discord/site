@@ -1,0 +1,4 @@
+<div class="ui full height left vertical inverted menu sidebar mobile-menu">
+{% include 'components/nav/items.html.peb' %}
+</div>
+

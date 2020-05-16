@@ -3,15 +3,34 @@
 <head>
     <title>Test Page</title>
 
-    <link rel="stylesheet" href="/static/semantic.css" />
+    <link rel="stylesheet" href="/static/semantic.css"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
     <script type="text/javascript" src="/static/jquery.js"></script>
     <script type="text/javascript" src="/static/semantic.js"></script>
 </head>
 <body>
 {% block body %}
-<div class="ui container">
-    {% block content %}{% endblock %}
+
+{% include "components/nav/mobile.html.peb" %}
+
+<div class="pusher">
+    <div class="flex-columns">
+        <div class="nav column">
+        {% include "components/nav/desktop.html.peb" %}
+        </div>
+
+        <div class="content column" id="content-pusher">
+        {% include "components/nav/mobile.inner.html.peb" %}
+
+            <div class="ui content">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
+
+<script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 </html>

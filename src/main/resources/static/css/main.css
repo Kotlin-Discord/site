@@ -1,0 +1,100 @@
+.full.height {
+    min-height: 100vh;
+}
+
+.full.height.menu {
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.full.height.left.menu {
+    border-left: 0;
+}
+
+.full.height.right.menu {
+    border-right: 0;
+}
+
+.top.menu {
+    border-radius: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-columns > .content.column > .content {
+    padding: 1rem;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    .nav.column {
+        display: none;
+    }
+
+    .content.column {
+        width: 100vw !important;
+    }
+}
+
+/* Tablet / iPad Portrait */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .nav.column {
+        display: none;
+    }
+
+    .content.column {
+        width: 100vw !important;
+    }
+}
+
+/* Computer / Desktop / iPad Landscape */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .nav.column {
+        width: 250px !important;
+    }
+
+    .content.column {
+        width: calc(100vw - 250px) !important;
+    }
+
+    .mobile.only {
+        display: none;
+    }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+    .nav.column {
+        width: 250px !important;
+    }
+
+    .content.column {
+        width: calc(100vw - 250px) !important;
+    }
+
+    .mobile.only {
+        display: none;
+    }
+}
+
+/* Widescreen Monitor */
+@media only screen and (min-width: 1920px) {
+    .nav.column {
+        width: 250px !important;
+    }
+
+    .content.column {
+        width: calc(100vw - 250px) !important;
+    }
+
+    .mobile.only {
+        display: none;
+    }
+}
