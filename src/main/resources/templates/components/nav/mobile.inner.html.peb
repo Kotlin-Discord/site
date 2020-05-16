@@ -1,6 +1,5 @@
 <div class="ui mobile only inverted top menu">
-    <a class="mobile-menu-button">
+    <a class="item mobile-menu-button">
         <i class="content icon"></i>
     </a>
 </div>
-
