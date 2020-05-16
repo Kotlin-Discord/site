@@ -1,4 +1,7 @@
-const mobileMenu = $(".mobile-menu").first()
+const desktopMenu = $("#desktop-menu").first()
+const mobileMenu = $("#mobile-menu").first()
+
+desktopMenu.sticky()
 
 mobileMenu.sidebar({
     exclusive: true,

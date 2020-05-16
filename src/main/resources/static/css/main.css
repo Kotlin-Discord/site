@@ -32,6 +32,10 @@
     padding: 1rem;
 }
 
+#desktop-menu img {
+    width: 250px;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
     .nav.column {
@@ -40,6 +44,10 @@
 
     .content.column {
         width: 100vw !important;
+    }
+
+    .ui.content {
+        margin-top: 40px;
     }
 }
 
@@ -51,6 +59,10 @@
 
     .content.column {
         width: 100vw !important;
+    }
+
+    .ui.content {
+        margin-top: 40px;
     }
 }
 

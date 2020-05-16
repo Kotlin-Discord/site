@@ -1,5 +1,8 @@
-<div class="ui mobile only inverted top menu">
+<div class="ui mobile only inverted top fixed menu">
     <a class="item mobile-menu-button">
         <i class="content icon"></i>
     </a>
+    <div class="menu right">
+        <div class="item">Kotlin Discord</div>
+    </div>
 </div>
