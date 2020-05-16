@@ -32,10 +32,6 @@
     padding: 1rem;
 }
 
-#desktop-menu img {
-    width: 250px;
-}
-
 /* Mobile */
 @media only screen and (max-width: 767px) {
     .nav.column {
