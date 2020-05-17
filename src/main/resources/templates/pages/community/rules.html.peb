@@ -1,0 +1,66 @@
+{% set page = "rules" %}
+{% set category = "community" %}
+
+{% extends 'components/base.html.peb' %}
+
+{% block content %}
+
+<div class="ui stackable grid">
+    <div class="eleven wide column">
+        <h1 class="ui dividing header">
+            Rules
+        </h1>
+
+        <p>
+            I'm an idiot and I don't care about anyone but myself. I'm an idiot and I don't care about anyone but myself.
+            Huh, what you think I'm afraid of you? I'm not afraid of you.
+        </p>
+
+        <p>
+            They just toss us away like yesterday's jam. Moss, what did you have for breakfast this morning? I think I'm
+            ugly. Why would I do it after?
+        </p>
+
+        <p>
+            Then which country am I speaking to? Hello? Hello? I didn't even know Smarties made a cereal. I just heard
+            it come on.
+        </p>
+
+        <p>
+            Oh my God! Have you tried turning it off and on again? Moss, what did you have for breakfast this morning?
+        </p>
+
+        <p>
+            Have you tried forcing an unexpected reboot? Is this the emergency services?
+        </p>
+
+        <p>
+            You know, it's high tide. I'm closed for maintenance! Oh really? Hello, IT Smarties cereal. Why would I do
+            it after? I mean, they have no respect for us up there! Well, they do have some strong arguments.
+        </p>
+
+        <p>
+            I'm an idiot and I don't care about anyone but myself.
+        </p>
+
+        <p>
+            If anyone was ever rude to me, I used to carry their food around in my trousers. No, after! I think I'm
+            ugly. We're all just drudgeons to them!
+        </p>
+    </div>
+
+    <div class="five wide column">
+        <h1 class="ui dividing header">
+            Something Else?
+        </h1>
+
+        <div class="ui top attached header">
+            Header
+        </div>
+        <div class="ui bottom attached segment">
+            Text
+        </div>
+    </div>
+</div>
+
+{% endblock %}

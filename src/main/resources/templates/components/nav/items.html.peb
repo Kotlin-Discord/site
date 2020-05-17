@@ -1,3 +1,6 @@
+{# @pebvariable name="category" type="String" #}
+{# @pebvariable name="page" type="String" #}
+
 <a class="main logo item" href="/">
     <img alt="Kotlin Discord logo" src="/static/images/logo-text.png"/>
 </a>
@@ -6,5 +9,28 @@
     <img alt="Join us on Discord!" src="/static/images/widget.png"/>
 </a>
 
-<a class="item">aaa</a>
-<a class="item">bbb</a>
+<a class="item {% if page == "index" %}active{% endif %}" href="/">
+    Home
+</a>
+
+<div class="item {% if category == "community" %}active{% endif %}">
+    Community Info
+
+    <div class="menu">
+        <a class="item {% if page == "coc" %}active{% endif %}" href="/community/code-of-conduct">Code of Conduct</a>
+        <a class="item {% if page == "rules" %}active{% endif %}" href="/community/rules">Rules</a>
+        <a class="item {% if page == "privacy" %}active{% endif %}" href="/community/privacy">Privacy</a>
+    </div>
+</div>
+
+{#
+<div class="ui simple inverted dropdown item">
+    Community Info <i class="dropdown icon"></i>
+
+    <div class="menu">
+        <a class="item" href="">Rules</a>
+        <a class="item" href="">Code of Conduct</a>
+        <a class="item" href="">Privacy</a>
+    </div>
+</div>
+#}

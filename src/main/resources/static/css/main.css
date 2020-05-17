@@ -1,18 +1,36 @@
-.full.height {
-    min-height: 100vh;
+html {
+    font-size: 100%;
 }
 
-.full.height.menu {
+body {
+    font-size: 1em;
+}
+
+.full.height {
+    min-height: 100vh;
+    display: flex !important;
+    flex-flow: column nowrap;
+}
+
+.full.height > * {
+    /*flex: 1 1 auto;*/
+}
+
+#desktop-menu.menu {
     border-radius: 0;
     border-top: 0;
     border-bottom: 0;
 }
 
-.full.height.left.menu {
+#desktop-menu > .active.item:last-child {
+    border-radius: 0;
+}
+
+#desktop-menu.left.menu {
     border-left: 0;
 }
 
-.full.height.right.menu {
+#desktop-menu.right.menu {
     border-right: 0;
 }
 
@@ -42,7 +60,18 @@
 }
 
 .main.logo.item {
-    padding: 1rem 1rem 1.4rem;
+    padding: 1rem 1rem 1.2rem;
+}
+
+span.circle {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+}
+
+.circle.kotlin {
+    background-color: #F18E33;
 }
 
 i.blurple,
@@ -51,10 +80,19 @@ i.blurple,
     color: #7289DA;
 }
 
+#desktop-menu > .item,
+#mobile-menu > .item {
+    /*font-size: 1.1rem;*/
+}
+
+.nav.column {
+    background-color: #1B1C1D;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
     .nav.column {
-        display: none;
+        display: none !important;
     }
 
     .content.column {
@@ -69,7 +107,7 @@ i.blurple,
 /* Tablet / iPad Portrait */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .nav.column {
-        display: none;
+        display: none !important;
     }
 
     .content.column {
@@ -84,11 +122,11 @@ i.blurple,
 /* Computer / Desktop / iPad Landscape */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .nav.column {
-        width: 250px !important;
+        width: 18rem !important;
     }
 
     .content.column {
-        width: calc(100vw - 250px) !important;
+        width: calc(100vw - 18rem) !important;
     }
 
     .mobile.only {
@@ -99,11 +137,11 @@ i.blurple,
 /* Large Monitor */
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
     .nav.column {
-        width: 250px !important;
+        width: 18rem !important;
     }
 
     .content.column {
-        width: calc(100vw - 250px) !important;
+        width: calc(100vw - 18rem) !important;
     }
 
     .mobile.only {
@@ -114,11 +152,11 @@ i.blurple,
 /* Widescreen Monitor */
 @media only screen and (min-width: 1920px) {
     .nav.column {
-        width: 250px !important;
+        width: 18rem !important;
     }
 
     .content.column {
-        width: calc(100vw - 250px) !important;
+        width: calc(100vw - 18rem) !important;
     }
 
     .mobile.only {

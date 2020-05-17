@@ -1,44 +1,73 @@
+{% set page = "index" %}
+{% set category = "" %}
+
 {% extends '../components/base.html.peb' %}
 
 {% block content %}
-<h1>Hello, {{ who | capitalize }}!</h1>
 
-<h2 class="ui dividing header">Sample Components</h2>
+<div class="ui stackable grid">
+    <div class="eleven wide column">
+        <h1 class="ui dividing header">
+            About us
+        </h1>
 
-<div class="ui three column stackable grid">
-    <div class="column">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient
-            montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+        <p>
+            The Kotlin Discord User Group (Kotlin Discord UG or KDis) is a new, Discord-based community that aims
+            to provide a friendly <a href="https://kotlinlang.org/">Kotlin&trade;</a>-oriented space, suitable
+            for everyone &mdash; at any skill level.
+        </p>
+
+        <p>
+            Inspired by the success of <a href="https://pythondiscord.com/">Python Discord</a>, we believe that
+            the Kotlin language deserves a community that can provide a space for newcomers to get their feet wet
+            in safety, while also providing somewhere for seasoned developers to gather to discuss Kotlin itself,
+            and to offer their expertise to the community.
+        </p>
+
+        <p>
+            Working with a language as new as Kotlin can be daunting, but we've got your back. For more information
+            on how our community works, feel free to check out the links in the menu - or jump in and
+            <a href="https://discord.gg/gjXqqCS">join the server</a>!
+        </p>
+
+        <h1 class="ui dividing header">
+            We're new!
+        </h1>
+
+        <p>
+            We know this page looks a bit empty right now. Don't worry, we've got a lot of things planned - keep
+            an eye out for announcements on the server!
+        </p>
     </div>
-    <div class="column">
-        <h2>Example body text</h2>
-        <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis
-            dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-        <p><small>This line of text is meant to be treated as fine print.</small></p>
-        <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-        <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-        <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-    </div>
-    <div class="column">
-        <div class="ui three column stackable padded middle aligned centered color grid">
-            <div class="red column">Red</div>
-            <div class="orange column">Orange</div>
-            <div class="yellow column">Yellow</div>
-            <div class="olive column">Olive</div>
-            <div class="green column">Green</div>
-            <div class="teal column">Teal</div>
-            <div class="blue column">Blue</div>
-            <div class="violet column">Violet</div>
-            <div class="purple column">Purple</div>
-            <div class="pink column">Pink</div>
-            <div class="brown column">Brown</div>
-            <div class="grey column">Grey</div>
-            <div class="black column">Black</div>
+
+    <div class="five wide column">
+        <h1 class="ui dividing header">
+            Projects
+        </h1>
+
+        <div class="ui top attached header">
+            <i class="github icon"></i>
+            <div class="content"><a href="https://github.com/Kotlin-Discord/bot">Bot</a></div>
+        </div>
+        <div class="ui bottom attached segment">
+            The Discord bot designed specifically for our community.
+        </div>
+
+        <div class="ui top attached header">
+            <i class="github icon"></i>
+            <div class="content"><a href="https://github.com/Kotlin-Discord/site">Site</a></div>
+        </div>
+        <div class="ui bottom attached segment">
+            The source code for this website.
+        </div>
+
+        <div class="ui top attached header">
+            <i class="github icon"></i>
+            <div class="content"><a href="https://github.com/Kotlin-Discord/kord-extensions">Kord Extensions</a></div>
+        </div>
+        <div class="ui bottom attached segment">
+            Integrated commands and extensions framework for the
+            <a href="https://gitlab.com/kordlib/kord">Kord Discord library</a>.
         </div>
     </div>
 </div>

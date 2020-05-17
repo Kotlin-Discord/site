@@ -15,7 +15,7 @@
 
 <div class="pusher">
     <div class="flex-columns">
-        <div class="nav column">
+        <div class="full height nav column">
         {% include "components/nav/desktop.html.peb" %}
         </div>
 
