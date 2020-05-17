@@ -3,6 +3,8 @@
 
 {% extends 'components/base.html.peb' %}
 
+{% block title %}Privacy{% endblock %}
+
 {% block content %}
 
 <div class="ui stackable grid">

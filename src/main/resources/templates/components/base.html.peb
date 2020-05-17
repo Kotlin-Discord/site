@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Test Page</title>
+    <title>Kotlin Discord | {% block title %}No Title{% endblock %}</title>
 
     <link rel="stylesheet" href="/static/semantic.css"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
