@@ -2,7 +2,12 @@
     <a class="item mobile-menu-button">
         <i class="content icon"></i>
     </a>
+    <a class="item" href="https://discord.gg/gjXqqCS">
+        <i class="blurple discord icon"></i> Join us on Discord
+    </a>
     <div class="menu right">
-        <div class="item">Kotlin Discord</div>
+        <a class="item" href="/">
+            Kotlin Discord
+        </a>
     </div>
 </div>

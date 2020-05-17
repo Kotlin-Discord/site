@@ -1,5 +1,9 @@
-<a class="item" href="/">
+<a class="main logo item" href="/">
     <img alt="Kotlin Discord logo" src="/static/images/logo-text.png"/>
+</a>
+
+<a class="discord item" href="https://discord.gg/gjXqqCS">
+    <img alt="Join us on Discord!" src="/static/images/widget.png"/>
 </a>
 
 <a class="item">aaa</a>
