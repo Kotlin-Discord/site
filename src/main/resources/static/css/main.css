@@ -12,6 +12,11 @@ body {
     /*flex: 1 1 auto;*/
 }
 
+#content-pusher {
+    /* We have to do this because otherwise content will sit right against the scrollbar */
+    padding-right: 18px;
+}
+
 #desktop-menu.menu {
     border-radius: 0;
     border-top: 0;
