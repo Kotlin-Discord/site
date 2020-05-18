@@ -7,60 +7,289 @@
 
 {% block content %}
 
-<div class="ui stackable grid">
-    <div class="eleven wide column">
-        <h1 class="ui dividing header">
-            Rules
-        </h1>
+<h1 class="ui dividing header">
+    Rules
+</h1>
 
-        <p>
-            I'm an idiot and I don't care about anyone but myself. I'm an idiot and I don't care about anyone but myself.
-            Huh, what you think I'm afraid of you? I'm not afraid of you.
-        </p>
+<div class="ui info icon message">
+    <i class="small info circle icon"></i>
 
+    <div class="content">
+        <div class="header">
+            More information is available.
+        </div>
         <p>
-            They just toss us away like yesterday's jam. Moss, what did you have for breakfast this morning? I think I'm
-            ugly. Why would I do it after?
-        </p>
-
-        <p>
-            Then which country am I speaking to? Hello? Hello? I didn't even know Smarties made a cereal. I just heard
-            it come on.
-        </p>
-
-        <p>
-            Oh my God! Have you tried turning it off and on again? Moss, what did you have for breakfast this morning?
-        </p>
-
-        <p>
-            Have you tried forcing an unexpected reboot? Is this the emergency services?
-        </p>
-
-        <p>
-            You know, it's high tide. I'm closed for maintenance! Oh really? Hello, IT Smarties cereal. Why would I do
-            it after? I mean, they have no respect for us up there! Well, they do have some strong arguments.
-        </p>
-
-        <p>
-            I'm an idiot and I don't care about anyone but myself.
-        </p>
-
-        <p>
-            If anyone was ever rude to me, I used to carry their food around in my trousers. No, after! I think I'm
-            ugly. We're all just drudgeons to them!
+            Click/tap a rule for more information, and feel free to ask a member
+            of staff if you have any questions.
         </p>
     </div>
+</div>
 
-    <div class="five wide column">
+<div class="ui stackable two column grid">
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_one:"></em>
+
+                &nbsp;Follow Discord's rules
+            </div>
+            <div class="content">
+                As a Discord-based community, we require that our users adhere to both the
+                Discord <a href="https://discord.com/guidelines">Community Guidelines</a>
+                and <a href="https://discord.com/terms">Terms of Service</a>.
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_two:"></em>
+
+                &nbsp;Follow our Code of Conduct
+            </div>
+            <div class="content">
+                Read and follow the
+                <a href="/community/code-of-conduct">Kotlin Discord UG Code of Conduct</a>.
+                This document explicitly outlines the kind of behaviour we expect from our users,
+                and is the basis for these rules.
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_three:"></em>
+
+                &nbsp;Avoid non-English languages
+            </div>
+            <div class="content">
+                <p>
+                    While we do understand that the world is a big place and many people will
+                    have a different native language, our staff team primarily speaks English
+                    and we are unable to moderate discussions in other languages.
+                </p>
+                <p>
+                    If you're not a native English speaker, then please try to speak English
+                    to the best of your ability. You may also make use of online translation
+                    tools, if you prefer.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_four:"></em>
+
+                &nbsp;Treat all users with patience &amp; respect
+            </div>
+            <div class="content">
+                <p>
+                    Treat other people how you wish to be treated. If you would not be happy
+                    to be treated a certain way, do not treat other users that way.
+                </p>
+                <p>
+                    Remember, everyone was a beginner once. We have a responsibility to
+                    provide a friendly, safe community for everyone, including newcomers
+                    to Kotlin and programming in general. Don't give our community, or
+                    the Kotlin and programming communities at large, a poor reputation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_five:"></em>
+
+                &nbsp;Listen to and respect all staff members
+            </div>
+            <div class="content">
+                <p>
+                    All members of staff are here to support the community, keep things
+                    running smoothly, and ensure that it remains safe and friendly. In
+                    order meet those goals, it's important that they have your
+                    cooperation.
+                </p>
+                <p>
+                    If a staff member asks you to do something, then you should listen
+                    to them. If you have a problem with what you're being asked to do,
+                    then please bring it up with another staff member later - do not
+                    cause a scene in a public channel.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_six:"></em>
+
+                &nbsp;Keep all projects legal and appropriate
+            </div>
+            <div class="content">
+                <p>
+                    You will not be provided with help if your project may break laws,
+                    breach terms of services (Discord's or those of other organisations),
+                    be considered malicious or inappropriate, or be for graded coursework
+                    or exams.
+                </p>
+                <p>
+                    Additionally, keep your code appropriate. Do not sexualize your code
+                    or use any slurs or other forms of derogatory language - even if, in
+                    your opinion, it's done in a joking manner.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_seven:"></em>
+
+                &nbsp;Do not spam, or advertise other communities or projects
+            </div>
+            <div class="content">
+                <p>
+                    Our community is not a place to recruit users or developers, even
+                    if you plan on paying them. If you'd like to share an open source
+                    project then you may discuss it in <code>#open-source-collab</code>,
+                    but don't just post a link there and leave - this is a discussion
+                    channel.
+                </p>
+                <p>
+                    We will remove links to other Discord servers, communities and
+                    projects at our discretion. If you would like to work with our
+                    community, then please approach a member of staff directly instead
+                    of advertising.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui styled accordion">
+            <div class="large title">
+                <em data-emoji=":digit_eight:"></em>
+
+                &nbsp;Adhere to the given topics and guidelines for each channel
+            </div>
+            <div class="content">
+                <p>
+                    Most of our channels are strictly on-topic, and we expect our
+                    users to take note of a channel's topic and stick to it. We
+                    understand that conversations may spam multiple topics and
+                    move on to something else, but we reserve the right to ask
+                    you to move if a conversation leaves the scope of a channel's
+                    topic.
+                </p>
+                <p>
+                    Additionally, there is no channel that is appropriate for
+                    dropping images or memes without context. All channels are
+                    strictly discussion channels.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui stackable two column grid">
+    <div class="column">
         <h1 class="ui dividing header">
-            Something Else?
+            Nicknames &amp; Avatars
         </h1>
 
-        <div class="ui top attached header">
-            Header
-        </div>
-        <div class="ui bottom attached segment">
-            Text
+        <p>
+            All nicknames and avatars must adhere to the rules above. We also require
+            that all users may be mentioned using ASCII characters. This can be
+            achieved in a variety of ways:
+        </p>
+
+        <ul>
+            <li>
+                Set a server nickname comprised entirely of ASCII characters
+            </li>
+            <li>
+                Set a server nickname that is mostly ASCII characters, but is
+                decorated using other characters
+            </li>
+            <li>
+                Set a Discord username comprised entirely of ASCII characters,
+                and a server nickname using visually similar Unicode characters,
+                in the same configuration
+            </li>
+            <li>
+                Set a Discord username comprised entirely of ASCII characters, and
+                do not set a server nickname
+            </li>
+        </ul>
+
+        <p>
+            Additionally, nicknames should not be hard to read or too noisy. Nicknames
+            may be considered difficult to read or noisy if they contain emojis, Zalgo
+            or other difficult-to-read text styles, or control characters. "Empty"
+            nicknames are also considered hard to read.
+        </p>
+
+        <p>
+            Avatars depicting objectionable or NSFW (Not Safe For Work) content are
+            prohibited, as well as avatars that attempt to appear "blank" by blending
+            in with the background of the Discord client.
+        </p>
+
+        <p>
+            Do not change your avatar, nickname or username to try to protest a moderation
+            action, or to attack any user.
+        </p>
+    </div>
+    <div class="column">
+        <div class="width-fix">
+            <h1 class="ui dividing header">
+                Reporting
+            </h1>
+
+            <p>
+                To report rule-breaking behaviour in public, mention the
+                <span class="ui text orange">@Moderators</span> role directly in the channel
+                &mdash; someone will be along as soon as possible.
+            </p>
+            <p>
+                If your report is sensitive or concerns private messages, please feel free to
+                send a private message directly to a member of staff. If your report concerns
+                a member of staff, then please send a private message directly to a different
+                member of staff (of equal or higher rank, if possible).
+            </p>
+            <h1 class="ui dividing header">
+                Enforcement
+            </h1>
+
+            <p>
+                Our moderators have multiple tools at their disposal when dealing
+                with rule-breakers, including the following:
+            </p>
+            <ul>
+                <li>Verbally warning or correcting users</li>
+                <li>Forcibly changing a user's nickname</li>
+                <li>Temporarily muting users</li>
+                <li>Temporarily removing users from the community</li>
+                <li>Permanently removing users from the community</li>
+            </ul>
+            <p>
+                Each situation is unique, and will be assessed on a case-by-case basis.
+                All actions taken in response to rule-breaking is done at the discretion
+                of the moderator in question.
+            </p>
+            <p>
+                We currently do not have a way to appeal community bans. We're exploring
+                our options, but in the meantime you are free to add <code>gdude#2002</code>
+                as a friend and send your appeal in a private message.
+            </p>
         </div>
     </div>
 </div>
