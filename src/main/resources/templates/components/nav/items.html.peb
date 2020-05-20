@@ -13,13 +13,13 @@
     Home
 </a>
 
-<div class="item {% if category == "community" %}active{% endif %}">
-    Community Info
+<div class="item {% if category == "docs" %}active{% endif %}">
+    Documentation
 
     <div class="menu">
-        <a class="item {% if page == "coc" %}active{% endif %}" href="/community/code-of-conduct">Code of Conduct</a>
-        <a class="item {% if page == "rules" %}active{% endif %}" href="/community/rules">Rules &amp; Policies</a>
-        <a class="item {% if page == "privacy" %}active{% endif %}" href="/community/privacy">Privacy</a>
+        <a class="item {% if page == "coc" %}active{% endif %}" href="/docs/code-of-conduct">Code of Conduct</a>
+        <a class="item {% if page == "rules" %}active{% endif %}" href="/docs/rules">Rules &amp; Policies</a>
+        <a class="item {% if page == "privacy" %}active{% endif %}" href="/docs/privacy">Privacy</a>
     </div>
 </div>
 

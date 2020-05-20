@@ -1,5 +1,5 @@
 {% set page = "coc" %}
-{% set category = "community" %}
+{% set category = "docs" %}
 
 {% extends 'components/base.html.peb' %}
 

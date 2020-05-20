@@ -1,0 +1,204 @@
+{% set page = "privacy" %}
+{% set category = "docs" %}
+
+{% extends 'components/base.html.peb' %}
+
+{% block title %}Privacy{% endblock %}
+
+{% block content %}
+
+<div class="ui stackable grid">
+    <div class="eleven wide column">
+        <h1 class="ui dividing header">
+            Privacy
+        </h1>
+
+        <p>
+            In order to keep things running smoothly, Kotlin Discord UG collects some information
+            about its users on Discord. As we do value your privacy, we aim to collect the bare
+            minimum amount of data required for our tools to work.
+        </p>
+
+        <h3 class="ui top attached header">
+            User information stored in the database
+        </h3>
+
+        <table class="ui bottom attached celled striped table">
+            <tbody>
+            <tr>
+                <td class="four wide">User ID</td>
+                <td class="twelve wide">
+                    This is used as a unique identifier, as it is on Discord.
+                    This ensures that we can reliably refer to a specific user.
+                </td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>
+                    We collect this for display purposes only.
+                </td>
+            </tr>
+            <tr>
+                <td>Discriminator</td>
+                <td>
+                    We collect this for display purposes only.
+                </td>
+            </tr>
+            <tr>
+                <td>Avatar URL</td>
+                <td>
+                    We collect this for display purposes only.
+                </td>
+            </tr>
+            <tr>
+                <td>Roles</td>
+                <td>
+                    A user's roles define what they're able to do on the Discord
+                    server, and we use this information to define what users
+                    are allowed to do on the site as well.
+                </td>
+            </tr>
+            <tr>
+                <td>Infraction context</td>
+                <td>
+                    If an infraction involves a group of messages, we may store
+                    those messages and their attachments in the database, so we
+                    can refer to them when reviewing moderator actions and
+                    deciding on future infractions.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui top attached header">
+            User information stored in Discord channels
+        </h3>
+
+        <table class="ui bottom attached celled striped table">
+            <tbody>
+            <tr>
+                <td class="four wide">Nickname changes</td>
+                <td class="twelve wide">
+                    We keep track of this for moderation purposes only.
+                </td>
+            </tr>
+            <tr>
+                <td>Deleted messages</td>
+                <td>
+                    We keep track of this for moderation purposes only. Note that messages
+                    deleted as part of an infraction may also be stored in the database,
+                    with their attachments.
+                </td>
+            </tr>
+            <tr>
+                <td>Avatar changes</td>
+                <td>
+                    We keep track of this for moderation purposes only.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui top attached header">
+            Moderator actions stored in the database
+        </h3>
+
+        <table class="ui bottom attached celled striped table">
+            <tbody>
+            <tr>
+                <td class="four wide">Infractions</td>
+                <td class="twelve wide">
+                    Keeping track of infractions is an essential part of maintaining
+                    a safe community. Infractions include creation and expiry information,
+                    references to users, a small number of messages and their attachments,
+                    infraction type and reasoning.
+                </td>
+            </tr>
+            <tr>
+                <td>Audit log</td>
+                <td>
+                    The audit log keeps track of all staff actions on the server. This
+                    allows us to easily keep track of all changes made to our community
+                    and infrastructure.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="five wide column">
+        <h1 class="ui dividing header">
+            Notes
+        </h1>
+
+        <div class="ui top attached header">
+            Policy
+        </div>
+        <div class="ui bottom attached segment">
+            <p>
+                Your data belongs to you. Kotlin Discord UG will never share any of its
+                collected data with third parties, regardless of any implied incentive.
+                Our users will be notified of changes to our privacy policy, and you
+                are free to leave the server at any point if you disagree with any
+                changes.
+            </p>
+            <p>
+                If you have any concerns about our privacy policy or the data we
+                collect, please feel free to contact a member of staff.
+            </p>
+        </div>
+
+        <div class="ui top attached header">
+            GDPR Compliance
+        </div>
+        <div class="ui bottom attached segment">
+            <p>
+                We understand the importance of user privacy and security. If
+                you would like your data removed or a copy of your data for
+                your own purposes, please contact a member of staff directly
+                and we'll be happy to help you.
+            </p>
+            <p>
+                Please note that some of the data we store is required for our
+                day-to-day operations, even if a user is no longer present in
+                the community. Regretfully, we will be unable to delete that
+                data. For more specifics on what data we can't get rid of,
+                feel free to ask a member of staff.
+            </p>
+        </div>
+
+        <h1 class="ui dividing header">
+            Changelog
+        </h1>
+
+        <p>
+            Privacy policies often need to be updated as data collection needs change. See below for a
+            full list of the changes that have been made over time.
+        </p>
+
+        <div class="ui styled accordion">
+            <div class="active title">
+                19th May 2020: Initial Version
+            </div>
+            <div class="active content">
+                <p>
+                    We created the first version of our privacy policy today. It included
+                    collection of basic, necessary user information and moderator actions,
+                    such as usernames and user IDs, as well as infraction reasons, targets,
+                    and dates, plus messages related to infractions, and their attachments.
+                </p>
+            </div>
+
+            <div class="title">
+                Older changes
+            </div>
+            <div class="content">
+                <p>
+                    Nothing here just yet.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

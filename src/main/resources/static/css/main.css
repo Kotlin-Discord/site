@@ -103,6 +103,10 @@ i.blurple,
     font-size: 1.2em;
 }
 
+.ui[class*="internally celled"].grid {
+    margin-top: 1em;
+}
+
 /*.ui.grid .column > .accordion:has(.content.active) { !* Someday, we'll get CSS 4 and this will work *!*/
 /*    height: 100%;*/
 /*}*/

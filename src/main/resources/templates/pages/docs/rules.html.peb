@@ -1,5 +1,5 @@
 {% set page = "rules" %}
-{% set category = "community" %}
+{% set category = "docs" %}
 
 {% extends 'components/base.html.peb' %}
 
@@ -199,7 +199,7 @@
     </div>
 </div>
 
-<div class="ui stackable two column grid">
+<div class="ui stackable two column internally celled grid">
     <div class="column">
         <h1 class="ui dividing header">
             Nicknames &amp; Avatars
