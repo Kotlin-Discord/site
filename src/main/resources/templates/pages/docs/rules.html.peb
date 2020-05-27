@@ -3,12 +3,12 @@
 
 {% extends 'components/base.html.peb' %}
 
-{% block title %}Rules{% endblock %}
+{% block title %}Rules &amp; Policies{% endblock %}
 
 {% block content %}
 
 <h1 class="ui dividing header">
-    Rules
+    Rules &amp; Policies
 </h1>
 
 <div class="ui info icon message">
@@ -106,7 +106,7 @@
             <div class="large title">
                 <em data-emoji=":digit_five:"></em>
 
-                &nbsp;Listen to and respect all staff members
+                &nbsp;Listen to &amp; respect all staff members
             </div>
             <div class="content">
                 <p>
@@ -130,7 +130,7 @@
             <div class="large title">
                 <em data-emoji=":digit_six:"></em>
 
-                &nbsp;Keep all projects legal and appropriate
+                &nbsp;Keep all projects legal &amp; appropriate
             </div>
             <div class="content">
                 <p>
@@ -265,6 +265,7 @@
                 a member of staff, then please send a private message directly to a different
                 member of staff (of equal or higher rank, if possible).
             </p>
+
             <h1 class="ui dividing header">
                 Enforcement
             </h1>
