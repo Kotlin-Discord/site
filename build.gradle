@@ -1,8 +1,9 @@
-import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
-
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            name = 'KotDis'
+            url = 'https://maven.kotlindiscord.com/repository/maven-public/'
+        }
     }
 }
 
@@ -15,28 +16,17 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
 
+import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
+
 group 'com.kotlindiscord.site'
 mainClassName = "io.ktor.server.jetty.EngineMain"
 targetCompatibility = 1.11
 version '1.0-SNAPSHOT'
 
 repositories {
-    jcenter()
-    mavenCentral()
-
-    maven {
-        name = 'Exposed'
-        url = 'https://dl.bintray.com/kotlin/exposed'
-    }
-
     maven {
         name = 'KotDis'
-        url = 'https://maven.kotlindiscord.com/repository/maven-snapshots'
-    }
-
-    maven {
-        name = 'KTor'
-        url = 'https://kotlin.bintray.com/ktor'
+        url = 'https://maven.kotlindiscord.com/repository/maven-public/'
     }
 }
 
