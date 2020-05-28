@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v2-beta
 
         with:
-          version: 12
+          node-version: 12
 
       - name: NPM (Install/Build)
         run: sh npm i
