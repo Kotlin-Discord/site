@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Java
+        uses: actions/setup-java@v1.0.0
+
+        with:
+          version: 1.11
+
+      - name: Set up Node
+        uses: actions/setup-node@v2-beta
+
+        with:
+          version: 12
+
+      - name: NPM (Install/Build)
+        run: sh npm i
+
+      - name: Gradle (Build)
+        run: sh gradlew build
+
+      - name: Rename Artifacts
+        run: |
+          mv build/libs/*-all.jar build/libs/KDSite.jar
+          mv build/libs/*-*.*.jar build/libs/KDSite-slim.jar
+
+      - name: Upload artifact (Slim JAR)
+        uses: actions/upload-artifact@v1.0.0
+
+        with:
+          name: Slim JAR
+          path: build/libs/KDSite-slim.jar
+
+      - name: Upload artifact (Production JAR)
+        uses: actions/upload-artifact@v1.0.0
+
+        with:
+          name: Production JAR
+          path: build/libs/KDSite.jar
+
+      - name: Docker Login
+        run: "docker login -u ${{ secrets.MAVEN_USER }} -p ${{ secrets.MAVEN_PASSWORD }} docker.kotlindiscord.com"
+
+      - name: Build Container
+        run: "docker build --file Dockerfile -t docker.kotlindiscord.com/site:latest ."
+
+      - name: Publish Container
+        run: "docker push docker.kotlindiscord.com/site"
+
+      # TODO: Uncomment this block when we're ready for deployment
+
+#      - name: Deploy to production
+#        run: |
+#          export SALTAPI_EAUTH=pam
+#          export SALTAPI_PASS=${{ secrets.SALT_PASSWORD  }}
+#          export SALTAPI_URL=https://${{ secrets.SALT_DOMAIN  }}
+#          export SALTAPI_USER=${{ secrets.SALT_USER }}
+#
+#          sudo apt-get update -y
+#          sudo apt-get install python3-setuptools -y
+#          sudo pip3 install wheel aiohttp cached-property
+#
+#          cd scripts
+#          python3 salt.py
