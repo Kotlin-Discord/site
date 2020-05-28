@@ -257,13 +257,12 @@
             <p>
                 To report rule-breaking behaviour in public, mention the
                 <span class="ui text orange">@Moderators</span> role directly in the channel
-                &mdash; someone will be along as soon as possible.
+                &mdash; someone will be along as soon as possible. Alternatively, send a private
+                message to the ModMail bot to open a private support thread.
             </p>
             <p>
-                If your report is sensitive or concerns private messages, please feel free to
-                send a private message directly to a member of staff. If your report concerns
-                a member of staff, then please send a private message directly to a different
-                member of staff (of equal or higher rank, if possible).
+                If your report concerns a member of staff, then please send a private message
+                directly to a different member of staff (of equal or higher rank, if possible).
             </p>
 
             <h1 class="ui dividing header">
