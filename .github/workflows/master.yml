@@ -32,22 +32,25 @@ jobs:
 
       - name: Rename Artifacts
         run: |
-          mv build/libs/*-all.jar build/libs/KDSite.jar
-          mv build/libs/*-*.*.jar build/libs/KDSite-slim.jar
+          mkdir build/artifacts
+
+          cp build/libs/* build/artifacts
+          mv build/artifacts/*-all.jar build/artifacts/KDBot.jar
+          mv build/artifacts/*-*.*.jar build/artifacts/KDBot-slim.jar
 
       - name: Upload artifact (Slim JAR)
         uses: actions/upload-artifact@v1.0.0
 
         with:
           name: Slim JAR
-          path: build/libs/KDSite-slim.jar
+          path: build/artifacts/KDBot-slim.jar
 
       - name: Upload artifact (Production JAR)
         uses: actions/upload-artifact@v1.0.0
 
         with:
           name: Production JAR
-          path: build/libs/KDSite.jar
+          path: build/artifacts/KDBot.jar
 
       - name: Docker Login
         run: "docker login -u ${{ secrets.MAVEN_USER }} -p ${{ secrets.MAVEN_PASSWORD }} docker.kotlindiscord.com"
