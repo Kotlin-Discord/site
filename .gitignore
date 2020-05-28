@@ -119,3 +119,6 @@ config.toml
 docs/build
 src/semantic
 node_modules
+
+# Build info
+src/main/resources/build.properties
