@@ -35,9 +35,14 @@ fun installRouting(app: Application) {
 
         get("/", template("pages/index.html.peb"))
 
-        get("/docs", redirect("/", true))
+        get("/docs", redirect("/"))
+        get("/resources", redirect("/"))
+
         get("/docs/code-of-conduct", template("pages/docs/code-of-conduct.html.peb"))
         get("/docs/privacy", template("pages/docs/privacy.html.peb"))
         get("/docs/rules", template("pages/docs/rules.html.peb"))
+
+        get("/resources/tools", template("pages/resources/tools.html.peb"))
+        get("/resources/tutorials", template("pages/resources/tutorials.html.peb"))
     }
 }

@@ -1,0 +1,266 @@
+{% set page = "tools" %}
+{% set category = "resources" %}
+
+{% extends 'components/base.html.peb' %}
+
+{% block title %}Tools &amp; Editors{% endblock %}
+
+{% block content %}
+
+<h1 class="ui dividing header">
+    Tools &amp; Editors
+</h1>
+
+<div class="ui stackable two column grid">
+    <div class="column">
+        <h2 class="ui top attached header">
+            &nbsp;Editors
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    IntelliJ IDEA
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui icon button" data-tooltip="Free and paid offerings available" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free - 150/year
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.jetbrains.com/idea/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    IntelliJ IDEA was created and is maintained by <a href="https://www.jetbrains.com/">JetBrains</a>,
+                    the same company responsible for Kotlin. Because of this, you'll find no better IDE for working
+                    with Kotlin - the levels of integration and presence of useful tooling is unmatched.
+                </p>
+                <p>
+                    Community Edition is completely free and contains everything you need to get started with
+                    Kotlin. There's also a paid-for Ultimate Edition (which is free for students), which contains
+                    many advanced tools and support for languages outside of the Java ecosystem as standard.
+                    Ultimate Edition is intended for use by professional developers, and may be overkill for new
+                    programmers.
+                </p>
+                <p>
+                    For a quick guide on getting started with Kotlin in IDEA, see
+                    <a href="https://kotlinlang.org/docs/tutorials/getting-started.html">the Kotlin documentation</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Eclipse IDE
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui icon button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.eclipse.org/ide/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    For people that aren't a fan of IDEA, JetBrains recommends the Eclipse IDE. This is maintained
+                    by the <a href="https://www.eclipse.org/ide/">Eclipse Foundation</a>, and is completely free.
+                    It targets the Java ecosystem, and a Kotlin plugin is available for free on their marketplace.
+                </p>
+                <p>
+                    For a quick guide on getting started with Kotlin in Eclipse, see
+                    <a href="https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html">the Kotlin documentation</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Visual Studio Code
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui icon button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://code.visualstudio.com/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Visual Studio Code is a lighter editor that is more suitable for low-powered computers than
+                    IDEA or Eclipse. While it isn't an IDE, the Kotlin plugin provides basic language and tooling
+                    support, and is plenty for newcomers to the language or those that prefer an editor that
+                    doesn't get in the way.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2 class="ui top attached header">
+            &nbsp;Tools
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Gradle
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://gradle.org">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Gradle is a popular build tool, aiming to provide a rich API and ecosystem of useful
+                    plugins. While not necessary for beginner projects or small tasks, Gradle is an essential
+                    tool for working with larger, more complex projects.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Orchid
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://orchid.run/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Orchid is a documentation generator, able to generate a website from a set of Markdown
+                    files and
+                    <a href="https://kotlinlang.org/docs/reference/kotlin-doc.html">documentation comments</a>.
+                </p>
+                <p>
+                    Orchid makes use of <a href="https://github.com/Kotlin/dokka">Dokka</a> under the hood. Dokka
+                    is currently in quite a basic state, so documentation generated with it (or Orchid) may be
+                    a little lacking, but it's the best option we have at the moment.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    KTLint
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://ktlint.github.io/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+                <a class="ui small primary labeled icon button" href="https://github.com/pinterest/ktlint">
+                    <i class="github icon"></i>
+                    Source Code
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    KTLint is an anti-bikeshedding Kotlin linter with a built-in formatter. It's designed
+                    to help you keep your Kotlin code in check - from adhering to style guidelines to catching
+                    common mistakes.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Detekt
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+                <a class="ui small primary labeled icon button" href="https://detekt.github.io/detekt/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+                <a class="ui small primary labeled icon button" href="https://github.com/detekt/detekt">
+                    <i class="github icon"></i>
+                    Source Code
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Detekt is a static code analysis tool for Kotlin, available as a standalone tool
+                    or Gradle plugin, and with integration with IDEA. It provides more comprehensive
+                    code analysis than KTLint (and actually can be configured to include a KTLint
+                    analysis), and is an essential tool for people that wish to write top-notch
+                    Kotlin code.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

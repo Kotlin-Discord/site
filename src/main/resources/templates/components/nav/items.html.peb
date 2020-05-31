@@ -23,6 +23,15 @@
     </div>
 </div>
 
+<div class="item {% if category == "resources" %}active{% endif %}">
+    Resources
+
+    <div class="menu">
+        <a class="item {% if page == "tools" %}active{% endif %}" href="/resources/tools">Tools &amp; Editors</a>
+        <a class="item {% if page == "tutorials" %}active{% endif %}" href="/resources/tutorials">Tutorials &amp; Books</a>
+    </div>
+</div>
+
 {#
 <div class="ui simple inverted dropdown item">
     Community Info <i class="dropdown icon"></i>

@@ -46,6 +46,10 @@ body {
     border-right: 0;
 }
 
+.top.margin {
+    margin-top: 1rem;
+}
+
 .flex-columns {
     display: flex;
     flex-direction: row;
@@ -57,6 +61,19 @@ body {
 
 .flex-columns > .content.column > .content {
     padding: 1rem;
+}
+
+.flex-columns .first {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    padding-right: 1rem;
+
+    vertical-align: center;
+}
+
+.flex-columns .last {
+    flex-grow: 0;
 }
 
 .discord.item {

@@ -1,0 +1,479 @@
+{% set page = "tutorials" %}
+{% set category = "resources" %}
+
+{% extends 'components/base.html.peb' %}
+
+{% block title %}Tutorials &amp; Books{% endblock %}
+
+{% block content %}
+
+<h1 class="ui dividing header">
+    Tutorials &amp; Books
+</h1>
+
+<div class="ui stackable two column grid">
+    <div class="column">
+        <h2 class="ui top attached header">
+            &nbsp;For beginners
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    freeCodeCamp beginner tutorials
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui primary icon button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui primary icon button" data-tooltip="Video format" data-inverted="">
+                            <i class="video icon"></i>
+                        </div>
+                        <div class="ui icon button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.freecodecamp.org/news/kotlin-programming-basics-for-beginners/">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+                <a class="ui small red labeled icon button" href="https://www.youtube.com/watch?v=F9UC9DY-vIU">
+                    <i class="youtube icon"></i>
+                    YouTube
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    <a href="https://www.freecodecamp.org/">freeCodeCamp</a> provides tens of thousands of hours worth
+                    of
+                    free learning material for programmers. This includes a Kotlin tutorial for beginners, in both
+                    text and video form.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Exploring Kotlin
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui primary icon button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui icon button" data-tooltip="Pay what you want" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free - 25
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.raywenderlich.com/5706-the-full-kotlin-apprentice-book-is-here">
+                    <i class="globe icon"></i>
+                    Overview
+                </a>
+                <a class="ui small primary labeled icon button" href="https://leanpub.com/exploring-kotlin">
+                    <i class="cart icon"></i>
+                    Store (Digital)
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A straight and to-the-point explanation of Kotlin's syntax and features (including sample
+                    code) condensed into a 100-page book, and you can pay what you want - including nothing! This
+                    is not a deep dive, but should be plenty of information to get any beginner started.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin Programming By Example
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui primary icon button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui icon button" data-tooltip="Paid ($40 - $50)" data-inverted="">
+                            <i class="dollar icon"></i>
+                            40 - 50
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.raywenderlich.com/5706-the-full-kotlin-apprentice-book-is-here">
+                    <i class="globe icon"></i>
+                    Overview
+                </a>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.packtpub.com/application-development/kotlin-programming-example">
+                    <i class="cart icon"></i>
+                    Store (Digital)
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    If you're already familiar with computers and how they work, then this Android-oriented
+                    book might not be a bad match for you. While a little terse when it comes to the fundamentals,
+                    it provides a relatively comprehensive tour of Kotlin's basics, and teaches many related
+                    technologies through three separate projects.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin Apprentice
+                </h3>
+                <div class="last">
+                    <div class="ui tiny buttons">
+                        <div class="ui primary icon button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui icon button" data-tooltip="Paid ($30 - $60)" data-inverted="">
+                            <i class="dollar icon"></i>
+                            30 - 60
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://www.raywenderlich.com/5706-the-full-kotlin-apprentice-book-is-here">
+                    <i class="globe icon"></i>
+                    Overview
+                </a>
+                <a class="ui small primary labeled icon button"
+                   href="https://store.raywenderlich.com/products/kotlin-apprentice">
+                    <i class="cart icon"></i>
+                    Store (Digital)
+                </a>
+                <a class="ui small orange labeled icon button"
+                   href="https://www.amazon.com/dp/1950325008?tag=raywend-20">
+                    <i class="amazon icon"></i>
+                    Amazon (Paperback)
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Kotlin Apprentice is a book for complete beginners, designed to ease you into the basic concepts of
+                    programming before teaching you the fundamentals of Kotlin. It also covers many advanced
+                    features of the language, such as functional programming, operator overloading and coroutines.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="ui top attached header">
+            &nbsp;For Android developers
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin Koans
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Interactive" data-inverted="">
+                            <i class="mouse pointer icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://play.kotlinlang.org/koans/overview">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A series of exercises intended to get developers familiar with the Kotlin syntax and some
+                    idioms, provided by JetBrains for free.
+                </p>
+                <p>
+                    Kotlin Koans is also available
+                    <a href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">
+                        directly from within IntelliJ IDEA Edu or Android Studio.
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Android Developers: Kotlin resources
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://developer.android.com/kotlin/learn">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A short crash-course on Kotlin, plus a set of Kotlin learning resources recommended by
+                    Google themselves, specifically intended to bring existing Android developers up to speed
+                    with Kotlin.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2 class="ui top attached header">
+            &nbsp;For Java developers
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin Koans
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Interactive" data-inverted="">
+                            <i class="mouse pointer icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://play.kotlinlang.org/koans/overview">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A series of exercises intended to get developers familiar with the Kotlin syntax and some
+                    idioms, provided by JetBrains for free.
+                </p>
+                <p>
+                    Kotlin Koans is also available
+                    <a href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">
+                        directly from within IntelliJ IDEA Edu or Android Studio.
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Getting Started with Kotlin
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://kotlinlang.org/docs/tutorials/getting-started.html">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    An official JetBrains guide to getting started with Kotlin using IDEA, Eclipse, or the command-line
+                    compiler. It also introduces the basics of running code snippets and working with build tools.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Google I/O: Introduction to Kotlin
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Video format" data-inverted="">
+                            <i class="video icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small red labeled icon button" href="https://www.youtube.com/watch?v=X1RVYt2QKQE">
+                    <i class="youtube icon"></i>
+                    YouTube
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A short primer on what you can expect from Kotlin when compared with Java. This talk took
+                    place at Google I/O 2017, and is presented by Hadi Hariri, VP of Developer Advocacy at
+                    JetBrains.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Google I/O: How to Kotlin
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Video format" data-inverted="">
+                            <i class="video icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small red labeled icon button" href="https://www.youtube.com/watch?v=6P20npkvcb8">
+                    <i class="youtube icon"></i>
+                    YouTube
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    Another short primer on what you can expect from Kotlin when compared with Java. This talk took
+                    place at Google I/O 2018, and is presented by Andrey Breslav, the lead Kotlin language
+                    designer.
+                </p>
+                <p>
+                    This video covers more advanced topics than the 2017 talk above.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="ui top attached header">
+            &nbsp;For Python developers
+        </h2>
+
+        <div class="ui attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin Koans
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Interactive" data-inverted="">
+                            <i class="mouse pointer icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button" href="https://play.kotlinlang.org/koans/overview">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+            <div class="top margin">
+                <p>
+                    A series of exercises intended to get developers familiar with the Kotlin syntax and some
+                    idioms, provided by JetBrains for free.
+                </p>
+                <p>
+                    Kotlin Koans is also available
+                    <a href="https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans">
+                        directly from within IntelliJ IDEA Edu or Android Studio.
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom attached segment">
+            <div class="flex-columns">
+                <h3 class="first title">
+                    Kotlin for Python developers
+                </h3>
+                <div class="last">
+                    <div class="ui tiny icon buttons">
+                        <div class="ui primary button" data-tooltip="Textual format" data-inverted="">
+                            <i class="book icon"></i>
+                        </div>
+                        <div class="ui button" data-tooltip="Free" data-inverted="">
+                            <i class="dollar icon"></i>
+                            Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="ui small primary labeled icon button"
+                   href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/introduction.html">
+                    <i class="globe icon"></i>
+                    Website
+                </a>
+            </div>
+
+            <div class="top margin">
+                <p>
+                    A tutorial written by <a href="https://eldhuset.net/">Aasmund Eldhuset</a>
+                    and owned by <a href="https://www.khanacademy.org/">Khan Academy</a> which, despite not being
+                    a part of Khan Academy's official product catalogue, provides an excellent primer for getting
+                    started with Kotlin if you already know Python.
+                </p>
+                <p>
+                    This tutorial is part of the
+                    <a href="https://kotlinlang.org/docs/tutorials/">
+                        tutorials section of the official Kotlin docs.
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
