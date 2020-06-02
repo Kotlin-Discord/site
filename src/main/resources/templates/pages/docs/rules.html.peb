@@ -207,26 +207,31 @@
 
         <p>
             All nicknames and avatars must adhere to the rules above. We also require
-            that all users may be mentioned using ASCII characters. This can be
-            achieved in a variety of ways:
+            that all users may be easily mentioned on a US or UK keyboard. See below
+            for some tips:
         </p>
 
         <ul>
             <li>
-                Set a server nickname comprised entirely of ASCII characters
+                It's easiest to mention plain ASCII names, but Discord now supports
+                a wide variety of Unicode characters that match up with ASCII characters.
+                This needs some experimentation before we can say for sure what does
+                and doesn't work, though.
             </li>
             <li>
-                Set a server nickname that is mostly ASCII characters, but is
-                decorated using other characters
+                Even if a specific characters can now be mentioned using ASCII characters,
+                they will not be considered easy to mention if it's not obvious how to
+                do so.
             </li>
             <li>
-                Set a Discord username comprised entirely of ASCII characters,
-                and a server nickname using visually similar Unicode characters,
-                in the same configuration
+                Remember that you don't need to change your username - a server nickname
+                will do just fine. Additionally, your entire nickname doesn't need to be
+                mentionable, partial mentions are fine.
             </li>
             <li>
-                Set a Discord username comprised entirely of ASCII characters, and
-                do not set a server nickname
+                If you're not sure whether your nickname is easy to mention, don't worry -
+                a staff member will let you know if it needs to be changed once you start
+                interacting with the community.
             </li>
         </ul>
 
