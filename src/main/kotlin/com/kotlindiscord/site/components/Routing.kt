@@ -1,5 +1,6 @@
 package com.kotlindiscord.site.components
 
+import com.kotlindiscord.site.routes.api.apiIndex
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
@@ -21,6 +22,19 @@ fun redirect(url: String, permanent: Boolean = false): suspend PipelineContext<U
 fun route(body: suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit):
         suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit = body
 
+fun apiRoute(body: suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Any?):
+        suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit = {
+    // TODO: Validate API authentication
+    // BODY: Once we have some kind of API auth validation, we should action it here.
+    // BODY: We should also pass the auth details along, so the route itself can check perms and such.
+
+    val resp = body.invoke(this, subject)
+
+    if (resp != null) {
+        call.respond(resp)
+    }
+}
+
 fun template(path: String): suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit {
     return {
         call.respond(PebbleContent(path, mapOf()))
@@ -34,6 +48,8 @@ fun installRouting(app: Application) {
         }
 
         get("/", template("pages/index.html.peb"))
+
+        get("/api", apiIndex)
 
         get("/docs", redirect("/"))
         get("/resources", redirect("/"))
