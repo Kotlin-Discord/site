@@ -47,17 +47,15 @@ val apiUsersPost = route {  // This one doesn't return any actual data
             user.avatarUrl = model.avatarUrl
 
             val givenRoles = user.roles.map { it.id.value }
-            val roles = user.roles.toList().filter { model.roles.contains(it.id.value) }.toMutableList()
+            val roles = user.roles.filter { model.roles.contains(it.id.value) }.toMutableList()
 
-            for (roleId in model.roles) {
-                if (!givenRoles.contains(roleId)) {
-                    try {
-                        roles.add(Role[roleId])
-                    } catch (e: EntityNotFoundException) {
-                        call.respond(HttpStatusCode.NotFound, mapOf("error" to "Unknown role ID: $roleId"))
+            for (roleId in model.roles - givenRoles) {
+                try {
+                    roles.add(Role[roleId])
+                } catch (e: EntityNotFoundException) {
+                    call.respond(HttpStatusCode.NotFound, mapOf("error" to "Unknown role ID: $roleId"))
 
-                        return@newSuspendedTransaction
-                    }
+                    return@newSuspendedTransaction
                 }
             }
 

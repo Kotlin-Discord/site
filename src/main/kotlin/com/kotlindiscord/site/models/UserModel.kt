@@ -10,7 +10,7 @@ data class UserModel(
     val username: String,
     val discriminator: String,
     val avatarUrl: String,
-    val roles: List<Long> = listOf()
+    val roles: Set<Long> = setOf()
 ) {
     companion object {
         fun fromDB(user: User): UserModel {
@@ -20,7 +20,7 @@ data class UserModel(
                 discriminator = user.discriminator,
                 avatarUrl = user.avatarUrl,
 
-                roles = user.roles.map { it.id.value }
+                roles = user.roles.map { it.id.value }.toSet()
             )
         }
     }
