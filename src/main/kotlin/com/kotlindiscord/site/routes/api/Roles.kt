@@ -1,6 +1,7 @@
 package com.kotlindiscord.site.routes.api
 
 import com.kotlindiscord.database.Role
+import com.kotlindiscord.database.getOrNull
 import com.kotlindiscord.site.components.apiRoute
 import com.kotlindiscord.site.models.RoleModel
 import io.ktor.application.call
@@ -15,12 +16,7 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 val apiRolesDelete = apiRoute {
     newSuspendedTransaction {
         val id = call.parameters.getOrFail("id").toLong()
-
-        val role = try {
-            Role[id]
-        } catch (e: EntityNotFoundException) {
-            return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
-        }
+        val role = Role.getOrNull(id) ?: return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
 
         role.delete()
     }

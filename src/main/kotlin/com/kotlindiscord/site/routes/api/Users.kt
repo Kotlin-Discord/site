@@ -2,6 +2,7 @@ package com.kotlindiscord.site.routes.api
 
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.database.User
+import com.kotlindiscord.database.getOrNull
 import com.kotlindiscord.site.components.apiRoute
 import com.kotlindiscord.site.models.UserModel
 import io.ktor.application.call
@@ -23,12 +24,7 @@ val apiUsersGet = apiRoute {
 val apiUsersGetSingle = apiRoute {
     newSuspendedTransaction {
         val id = call.parameters.getOrFail("id").toLong()
-
-        val user = try {
-            User[id]
-        } catch (e: EntityNotFoundException) {
-            return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
-        }
+        val user = User.getOrNull(id) ?: return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
 
         UserModel.fromDB(user)
     }
@@ -49,13 +45,12 @@ val apiUsersPost = apiRoute {
             val roles = user.roles.filter { model.roles.contains(it.id.value) }.toMutableList()
 
             for (roleId in model.roles - givenRoles) {
-                try {
-                    roles.add(Role[roleId])
-                } catch (e: EntityNotFoundException) {
-                    call.respond(HttpStatusCode.NotFound, mapOf("error" to "Unknown role ID: $roleId"))
+                val role = Role.getOrNull(roleId) ?: return@newSuspendedTransaction call.respond(
+                    HttpStatusCode.NotFound,
+                    mapOf("error" to "Unknown role ID: $roleId")
+                )
 
-                    return@newSuspendedTransaction
-                }
+                roles.add(role)
             }
 
             user.roles = SizedCollection(roles)
@@ -63,13 +58,12 @@ val apiUsersPost = apiRoute {
             val roles = mutableListOf<Role>()
 
             for (roleId in model.roles) {
-                try {
-                    roles.add(Role[roleId])
-                } catch (e: EntityNotFoundException) {
-                    call.respond(HttpStatusCode.NotFound, mapOf("error" to "Unknown role ID: $roleId"))
+                val role = Role.getOrNull(roleId) ?: return@newSuspendedTransaction call.respond(
+                    HttpStatusCode.NotFound,
+                    mapOf("error" to "Unknown role ID: $roleId")
+                )
 
-                    return@newSuspendedTransaction
-                }
+                roles.add(role)
             }
 
             User.new(model.id) {
