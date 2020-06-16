@@ -4,6 +4,7 @@ import com.kotlindiscord.site.routes.api.*
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.resources
 import io.ktor.http.content.static
 import io.ktor.pebble.PebbleContent
@@ -32,8 +33,11 @@ fun apiRoute(body: suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Any?
 
     val resp = body.invoke(this, subject)
 
-    if (resp != null) {
-        call.respond(resp)
+    when {
+        resp != null && call.response.status() == null -> call.respond(HttpStatusCode.OK, resp)
+        resp != null -> call.respond(resp)
+
+        else -> call.respond(HttpStatusCode.OK)
     }
 }
 

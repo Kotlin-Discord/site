@@ -4,7 +4,7 @@ import com.kotlindiscord.database.Infraction
 import com.kotlindiscord.database.InfractionTypes
 import com.kotlindiscord.database.Infractions
 import com.kotlindiscord.database.User
-import com.kotlindiscord.site.components.route
+import com.kotlindiscord.site.components.apiRoute
 import com.kotlindiscord.site.models.InfractionFilterModel
 import com.kotlindiscord.site.models.InfractionModel
 import io.ktor.application.call
@@ -20,15 +20,19 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 import java.time.Instant
 import java.time.LocalDateTime
 
-val apiInfractionsGet = route {
+val apiInfractionsGet = apiRoute {
     val model = call.receive<InfractionFilterModel>()
 
-    if (model.createdAfter != null && model.createdBefore != null) return@route call.respond(
-        HttpStatusCode.NotAcceptable,
-        mapOf("error" to "Specify one of createdAfter and createdBefore, not both.")
-    )
+    if (model.createdAfter != null && model.createdBefore != null) {
+        call.respond(
+            HttpStatusCode.NotAcceptable,
+            mapOf("error" to "Specify one of createdAfter and createdBefore, not both.")
+        )
 
-    newSuspendedTransaction {
+        return@apiRoute null
+    }
+
+    return@apiRoute newSuspendedTransaction {
         val query = Infractions.selectAll()
 
         if (model.id != null) query.andWhere { Infractions.id eq model.id }
@@ -74,19 +78,19 @@ val apiInfractionsGet = route {
             }
         }
 
-        call.respond(HttpStatusCode.OK, query.toList())
+        query.toList()
     }
 }
 
-val apiInfractionsPost = route {
+val apiInfractionsPost = apiRoute {
     val model = call.receive<InfractionModel>()
 
-    val infractor = getUser(model.infractor) ?: return@route call.respond(
+    val infractor = getUser(model.infractor) ?: return@apiRoute call.respond(
         HttpStatusCode.NotFound,
         mapOf("error" to "Unknown infractor ID: ${model.infractor}")
     )
 
-    val user = getUser(model.user) ?: return@route call.respond(
+    val user = getUser(model.user) ?: return@apiRoute call.respond(
         HttpStatusCode.NotFound,
         mapOf("error" to "Unknown user ID: ${model.user}")
     )
@@ -102,7 +106,7 @@ val apiInfractionsPost = route {
         this.user = user
     }
 
-    call.respond(HttpStatusCode.OK)
+    null
 }
 
 private suspend fun getUser(id: Long): User? = newSuspendedTransaction {

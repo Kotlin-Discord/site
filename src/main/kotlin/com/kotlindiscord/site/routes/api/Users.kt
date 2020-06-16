@@ -3,7 +3,6 @@ package com.kotlindiscord.site.routes.api
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.database.User
 import com.kotlindiscord.site.components.apiRoute
-import com.kotlindiscord.site.components.route
 import com.kotlindiscord.site.models.UserModel
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
@@ -35,7 +34,7 @@ val apiUsersGetSingle = apiRoute {
     }
 }
 
-val apiUsersPost = route {  // This one doesn't return any actual data
+val apiUsersPost = apiRoute {
     val model = call.receive<UserModel>()
 
     newSuspendedTransaction {
@@ -81,7 +80,7 @@ val apiUsersPost = route {  // This one doesn't return any actual data
                 this.roles = SizedCollection(roles)
             }
         }
-
-        if (call.response.status() == null) call.respond(HttpStatusCode.OK)
     }
+
+    null
 }

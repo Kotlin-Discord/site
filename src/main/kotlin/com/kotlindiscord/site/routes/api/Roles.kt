@@ -2,7 +2,6 @@ package com.kotlindiscord.site.routes.api
 
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.site.components.apiRoute
-import com.kotlindiscord.site.components.route
 import com.kotlindiscord.site.models.RoleModel
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
@@ -13,7 +12,7 @@ import org.jetbrains.exposed.dao.exceptions.EntityNotFoundException
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 
-val apiRolesDelete = route {
+val apiRolesDelete = apiRoute {
     newSuspendedTransaction {
         val id = call.parameters.getOrFail("id").toLong()
 
@@ -26,7 +25,7 @@ val apiRolesDelete = route {
         role.delete()
     }
 
-    call.respond(HttpStatusCode.OK)
+    null
 }
 
 val apiRolesGet = apiRoute {
@@ -50,7 +49,7 @@ val apiRolesPost = apiRoute {
                 colour = model.colour
             }
         }
-
-        call.respond(HttpStatusCode.OK)
     }
+
+    null
 }
