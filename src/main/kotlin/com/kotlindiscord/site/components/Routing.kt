@@ -14,7 +14,10 @@ import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.routing
+import io.ktor.util.getOrFail
 import io.ktor.util.pipeline.PipelineContext
+
+private val API_KEY = System.getenv("API_KEY")
 
 fun redirect(url: String, permanent: Boolean = false): suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit {
     return {
@@ -31,13 +34,19 @@ fun apiRoute(body: suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Any?
     // BODY: Once we have some kind of API auth validation, we should action it here.
     // BODY: We should also pass the auth details along, so the route itself can check perms and such.
 
-    val resp = body.invoke(this, subject)
+    val key = call.parameters.getOrFail("api_key")
 
-    when {
-        resp != null && call.response.status() == null -> call.respond(HttpStatusCode.OK, resp)
-        resp != null -> call.respond(resp)
+    if (key != API_KEY) {
+        call.respond(HttpStatusCode.Forbidden)
+    } else {
+        val resp = body.invoke(this, subject)
 
-        else -> call.respond(HttpStatusCode.OK)
+        when {
+            resp != null && call.response.status() == null -> call.respond(HttpStatusCode.OK, resp)
+            resp != null -> call.respond(resp)
+
+            else -> call.respond(HttpStatusCode.OK)
+        }
     }
 }
 
