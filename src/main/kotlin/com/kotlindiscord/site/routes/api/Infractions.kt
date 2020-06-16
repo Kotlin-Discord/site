@@ -35,8 +35,14 @@ val apiInfractionsGet = route {
 
         if (model.reason != null) query.andWhere { Infractions.reason like model.reason }
         if (model.type != null) query.andWhere { Infractions.type eq InfractionTypes.valueOf(model.type.type) }
-        if (model.createdAfter != null) query.andWhere { Infractions.created lessEq model.createdAfter }
-        if (model.createdBefore != null) query.andWhere { Infractions.created greaterEq model.createdBefore }
+
+        if (model.createdAfter != null) query.andWhere {
+            Infractions.created lessEq LocalDateTime.from(model.createdAfter)
+        }
+
+        if (model.createdBefore != null) query.andWhere {
+            Infractions.created greaterEq LocalDateTime.from(model.createdBefore)
+        }
 
         if (model.infractor != null) {
             val infractor = getUser(model.infractor) ?: return@newSuspendedTransaction call.respond(
@@ -59,11 +65,11 @@ val apiInfractionsGet = route {
         if (model.active != null) {
             if (model.active) {
                 query.andWhere {
-                    Infractions.expires.isNotNull() and (Infractions.expires greater Instant.now())
+                    Infractions.expires.isNotNull() and (Infractions.expires greater LocalDateTime.from(Instant.now()))
                 }
             } else {
                 query.andWhere {
-                    Infractions.expires lessEq Instant.now() or Infractions.expires.isNull()
+                    Infractions.expires.isNull() or (Infractions.expires lessEq LocalDateTime.from(Instant.now()))
                 }
             }
         }
