@@ -69,7 +69,7 @@
         </div>
         <div class="ui bottom attached segment">
             Integrated commands and extensions framework for the
-            <a href="https://gitlab.com/kordlib/kord">Kord Discord library</a>.
+            <a href="https://github.com/kordlib/kord">Kord Discord library</a>.
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 package com.kotlindiscord.site.components
 
-import com.kotlindiscord.site.routes.api.apiIndex
+import com.kotlindiscord.site.routes.api.*
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
@@ -9,7 +9,9 @@ import io.ktor.http.content.static
 import io.ktor.pebble.PebbleContent
 import io.ktor.response.respond
 import io.ktor.response.respondRedirect
+import io.ktor.routing.delete
 import io.ktor.routing.get
+import io.ktor.routing.post
 import io.ktor.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 
@@ -50,6 +52,17 @@ fun installRouting(app: Application) {
         get("/", template("pages/index.html.peb"))
 
         get("/api", apiIndex)
+
+        get("/api/infractions", apiInfractionsGet)
+        post("/api/infractions", apiInfractionsPost)
+
+        get("/api/users", apiUsersGet)
+        get("/api/users/{id}", apiUsersGetSingle)
+        post("/api/users", apiUsersPost)
+
+        delete("/api/roles/{id}", apiRolesDelete)
+        get("/api/roles", apiRolesGet)
+        post("/api/roles", apiRolesPost)
 
         get("/docs", redirect("/"))
         get("/resources", redirect("/"))

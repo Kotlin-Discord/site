@@ -1,5 +1,7 @@
 package com.kotlindiscord.site
 
+import com.kotlindiscord.database.connectToDb
+import com.kotlindiscord.database.migrator.MigrationsManager
 import com.kotlindiscord.site.components.*
 import io.ktor.application.Application
 import io.ktor.locations.KtorExperimentalLocationsAPI
@@ -17,6 +19,20 @@ fun Application.main() {
 
     logger.info { "Starting KDSite version ${buildInfo.version}." }
 
+    // Connect to the database
+    connectToDb()
+
+    logger.info { "Connected to database. Applying migrations..." }
+
+    // Apply migrations
+    try {
+        MigrationsManager().migrateAll()
+
+        logger.info { "Database migrated successfully." }
+    } catch (e: IllegalStateException) {
+        logger.info { "Database already migrated." }
+    }
+
     // Install Locations first since other components use it
     installLocations(this)
 
@@ -29,4 +45,6 @@ fun Application.main() {
 
     // Now, set up routing
     installRouting(this)
+
+    logger.info { "Setup completed." }
 }
