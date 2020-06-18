@@ -1,10 +1,11 @@
 package com.kotlindiscord.site.routes.api
 
+import com.kotlindiscord.api.client.models.UserModel
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.database.User
 import com.kotlindiscord.database.getOrNull
 import com.kotlindiscord.site.components.apiRoute
-import com.kotlindiscord.site.models.UserModel
+import com.kotlindiscord.site.models.fromDB
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -17,7 +18,7 @@ import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransacti
 
 val apiUsersGet = apiRoute {
     newSuspendedTransaction {
-        User.all().map { UserModel.fromDB(it) }
+        User.all().map { fromDB(it) }
     }
 }
 
@@ -26,7 +27,7 @@ val apiUsersGetSingle = apiRoute {
         val id = call.parameters.getOrFail("id").toLong()
         val user = User.getOrNull(id) ?: return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
 
-        UserModel.fromDB(user)
+        fromDB(user)
     }
 }
 

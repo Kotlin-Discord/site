@@ -1,9 +1,10 @@
 package com.kotlindiscord.site.routes.api
 
+import com.kotlindiscord.api.client.models.InfractionFilterModel
+import com.kotlindiscord.api.client.models.InfractionModel
 import com.kotlindiscord.database.*
 import com.kotlindiscord.site.components.apiRoute
-import com.kotlindiscord.site.models.InfractionFilterModel
-import com.kotlindiscord.site.models.InfractionModel
+import com.kotlindiscord.site.models.fromDB
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -33,8 +34,8 @@ val apiInfractionsGet = apiRoute {
 
         if (model.id != null) query.andWhere { Infractions.id eq model.id }
 
-        if (model.reason != null) query.andWhere { Infractions.reason like model.reason }
-        if (model.type != null) query.andWhere { Infractions.type eq InfractionTypes.valueOf(model.type.type) }
+        if (model.reason != null) query.andWhere { Infractions.reason like model.reason!! }
+        if (model.type != null) query.andWhere { Infractions.type eq InfractionTypes.valueOf(model.type!!.type) }
 
         if (model.createdAfter != null) query.andWhere {
             Infractions.created lessEq LocalDateTime.from(model.createdAfter)
@@ -45,7 +46,7 @@ val apiInfractionsGet = apiRoute {
         }
 
         if (model.infractor != null) {
-            val infractor = User.getOrNull(model.infractor) ?: return@newSuspendedTransaction call.respond(
+            val infractor = User.getOrNull(model.infractor!!) ?: return@newSuspendedTransaction call.respond(
                 HttpStatusCode.NotFound,
                 mapOf("error" to "Unknown infractor ID: ${model.infractor}")
             )
@@ -54,7 +55,7 @@ val apiInfractionsGet = apiRoute {
         }
 
         if (model.user != null) {
-            val user = User.getOrNull(model.user) ?: return@newSuspendedTransaction call.respond(
+            val user = User.getOrNull(model.user!!) ?: return@newSuspendedTransaction call.respond(
                 HttpStatusCode.NotFound,
                 mapOf("error" to "Unknown user ID: ${model.user}")
             )
@@ -63,7 +64,7 @@ val apiInfractionsGet = apiRoute {
         }
 
         if (model.active != null) {
-            if (model.active) {
+            if (model.active!!) {
                 query.andWhere {
                     Infractions.expires.isNotNull() and (Infractions.expires greater LocalDateTime.from(Instant.now()))
                 }
@@ -74,7 +75,7 @@ val apiInfractionsGet = apiRoute {
             }
         }
 
-        query.toList()
+        query.map { fromDB(Infraction.wrapRow(it)) }
     }
 }
 

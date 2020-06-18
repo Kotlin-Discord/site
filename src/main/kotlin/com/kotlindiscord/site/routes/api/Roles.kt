@@ -1,9 +1,10 @@
 package com.kotlindiscord.site.routes.api
 
+import com.kotlindiscord.api.client.models.RoleModel
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.database.getOrNull
 import com.kotlindiscord.site.components.apiRoute
-import com.kotlindiscord.site.models.RoleModel
+import com.kotlindiscord.site.models.fromDB
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -26,7 +27,7 @@ val apiRolesDelete = apiRoute {
 
 val apiRolesGet = apiRoute {
     newSuspendedTransaction {
-        Role.all().map { RoleModel.fromDB(it) }
+        Role.all().map { fromDB(it) }
     }
 }
 
