@@ -83,7 +83,6 @@ val apiInfractionsPost = apiRoute {
     val model = call.receive<InfractionModel>()
 
     return@apiRoute newSuspendedTransaction {
-
         val infractor = User.getOrNull(model.infractor) ?: return@newSuspendedTransaction call.respond(
             HttpStatusCode.NotFound,
             mapOf("error" to "Unknown infractor ID: ${model.infractor}")
