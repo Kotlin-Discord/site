@@ -7,7 +7,6 @@ import com.kotlindiscord.api.client.models.UserModel
 import com.kotlindiscord.database.Infraction
 import com.kotlindiscord.database.Role
 import com.kotlindiscord.database.User
-import java.time.ZoneOffset
 
 fun fromDB(inf: Infraction): InfractionModel {
     return InfractionModel(
@@ -15,8 +14,8 @@ fun fromDB(inf: Infraction): InfractionModel {
 
         reason = inf.reason,
         type = inf.type.name.toInfractionType(),
-        expires = inf.expires.toInstant(ZoneOffset.UTC),
-        created = inf.created.toInstant(ZoneOffset.UTC),
+        expires = inf.expires,
+        created = inf.created,
 
         infractor = inf.infractor.id.value,
         user = inf.user.id.value

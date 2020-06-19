@@ -39,9 +39,9 @@ dependencies {
 
     implementation "io.ktor:ktor-client-apache:$ktorVersion"
 
-    implementation "io.ktor:ktor-gson:$ktorVersion"
     implementation "io.ktor:ktor-pebble:$ktorVersion"
     implementation "io.ktor:ktor-locations:$ktorVersion"
+    implementation "io.ktor:ktor-serialization:$ktorVersion"
     implementation "io.ktor:ktor-server-sessions:$ktorVersion"
     implementation "io.ktor:ktor-websockets:$ktorVersion"
 
