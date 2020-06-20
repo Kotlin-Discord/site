@@ -62,5 +62,7 @@ To run the project, simply use the `run` Gradle task. You'll need to set the fol
 variables, or the application will fail to start - feel free to leave their values empty if you're
 not working with them, though.
 
+* `DB_PASSWORD` / `DB_URL` / `DB_USER`: Database connection details. Assumes postgres.
 * `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET`: These are used for Discord OAuth logins and
   correspond with the relevant settings in the Discord developer area.
+* `API_KEY`: Used to authenticate requests against the API.
