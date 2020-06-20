@@ -20,15 +20,6 @@ import java.time.LocalDateTime
 val apiInfractionsGet = apiRoute {
     val model = call.receive<InfractionFilterModel>()
 
-    if (model.createdAfter != null && model.createdBefore != null) {
-        call.respond(
-            HttpStatusCode.NotAcceptable,
-            mapOf("error" to "Specify one of createdAfter and createdBefore, not both.")
-        )
-
-        return@apiRoute null
-    }
-
     return@apiRoute newSuspendedTransaction {
         val query = Infractions.selectAll()
 
@@ -38,11 +29,11 @@ val apiInfractionsGet = apiRoute {
         if (model.type != null) query.andWhere { Infractions.type eq InfractionTypes.valueOf(model.type!!.type) }
 
         if (model.createdAfter != null) query.andWhere {
-            Infractions.created lessEq LocalDateTime.from(model.createdAfter)
+            Infractions.created greaterEq LocalDateTime.from(model.createdAfter)
         }
 
         if (model.createdBefore != null) query.andWhere {
-            Infractions.created greaterEq LocalDateTime.from(model.createdBefore)
+            Infractions.created lessEq LocalDateTime.from(model.createdBefore)
         }
 
         if (model.infractor != null) {
