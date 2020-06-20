@@ -3,6 +3,10 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
+          <entry key="API_KEY" value="test" />
+          <entry key="DB_PASSWORD" value="site" />
+          <entry key="DB_URL" value="localhost/site" />
+          <entry key="DB_USER" value="site" />
           <entry key="DISCORD_CLIENT_ID" value="" />
           <entry key="DISCORD_CLIENT_SECRET" value="" />
         </map>
