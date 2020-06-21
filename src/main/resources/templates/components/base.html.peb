@@ -20,6 +20,21 @@
     <meta name="theme-color" content="#7289da">
     {# End generated block #}
 
+    {# OpenGraph stuff #}
+    <meta property="og:title" content="Kotlin Discord | {% block title %}No Title{% endblock %}" />
+    <meta property="og:description" content="{% block description %}A friendly community for Kotlin beginners and advanced users alike.{% endblock %}" />
+    <meta property="og:image" content="{% block embedImage %}/static/images/logo-wide.png{% endblock %}" />
+    {# End OpenGraph stuff #}
+
+    {# Twitter card stuff #}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kotlin Discord | {% block title %}No Title{% endblock %}" />
+    <meta name="twitter:description" content="{% block description %}A friendly community for Kotlin beginners and advanced users alike.{% endblock %}" />
+    <meta name="twitter:image" content="{% block embedImage %}/static/images/logo-wide.png{% endblock %}" />
+    {# End Twitter card stuff #}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="/static/semantic.css"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
     <script type="text/javascript" src="/static/jquery.js"></script>
