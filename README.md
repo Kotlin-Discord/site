@@ -36,7 +36,7 @@ to install it. Simply run `npm i` after cloning the repository, and Fomantic UI 
 be installed to `src/semantic` and compiled into `build/semantic`.
 
 If you clear your `build` directory (or modified something in `src/semantic`), you can 
-rebuild Fomantic by opening a terminal in `src/semantic` and running `npx grunt build`.
+rebuild Fomantic by opening a terminal in `src/semantic` and running `npx gulp build`.
 
 We are currently not customising Fomantic UI, so we added the `src/semantic` directory
 to the `.gitignore`. This may change in the future.
