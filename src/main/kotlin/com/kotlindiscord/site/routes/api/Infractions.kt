@@ -84,17 +84,33 @@ val apiInfractionsPost = apiRoute {
             mapOf("error" to "Unknown user ID: ${model.user}")
         )
 
-        fromDB(
-            Infraction.new {
-                created = model.created
-                expires = model.expires
+        if (model.id != null) {
+            val infraction = Infraction.getOrNull(model.id!!) ?: return@newSuspendedTransaction call.respond(
+                HttpStatusCode.NotFound,
+                mapOf("error" to "Unknown infraction ID: ${model.infractor}")
+            )
 
-                reason = model.reason
-                type = InfractionTypes.valueOf(model.type.type)
+            infraction.created = model.created
+            infraction.expires = model.expires
 
-                this.infractor = infractor
-                this.user = user
-            }
-        )
+            infraction.reason = model.reason
+            infraction.type = InfractionTypes.valueOf(model.type.type)
+
+            infraction.infractor = infractor
+            infraction.user = user
+        } else {
+            return@newSuspendedTransaction fromDB(
+                Infraction.new {
+                    created = model.created
+                    expires = model.expires
+
+                    reason = model.reason
+                    type = InfractionTypes.valueOf(model.type.type)
+
+                    this.infractor = infractor
+                    this.user = user
+                }
+            )
+        }
     }
 }
