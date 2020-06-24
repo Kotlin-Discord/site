@@ -1,9 +1,9 @@
-name: CI
+name: CI (PRs/Branches)
 
 on:
   push:
     branches-ignore:
-      - 'master'
+      - 'root'
 
   pull_request:
 

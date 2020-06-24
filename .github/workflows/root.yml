@@ -1,9 +1,8 @@
-name: CI
+name: CI (Root)
 
 on:
   push:
     branches:
-      - master
       - root
 
 jobs:
