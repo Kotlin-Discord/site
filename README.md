@@ -47,13 +47,15 @@ Setting Up IDEA
 * Install the [Pebble plugin](https://plugins.jetbrains.com/plugin/9407-pebble).
   You'll need this to work with the Pebble templates we use in this project.
 * Open the project in IDEA and allow it to import the `build.gradle`.
-* Open the `Settings` window from the `File` menu, expand `Languages & Frameworks`
-  in the sidebar and navigate to `Template Data Languages`.
-* Click the dropdown next to `Project Language`, and select `Pebble`.
-* Click the `+` on the right-hand side of the window and select 
-  `src/main/resources/templates`.
-* Select the `Language` dropdown for the entry you just created, and change it to 
-  `HTML`.
+* Set up Pebble templates:
+    * Open the `Settings` window from the `File` menu, expand `Languages & Frameworks`
+      in the sidebar and navigate to `Template Data Languages`.
+    * Click the dropdown next to `Project Language`, and select `Pebble`.
+    * Click the `+` on the right-hand side of the window and select 
+      `src/main/resources/templates`.
+    * Select the `Language` dropdown for the entry you just created, and change it to 
+      `HTML`.
+    * Repeat for `src/main/resources/templates/css`, selecting `CSS` for the language.
 
 Running the Project
 -------------------
@@ -66,3 +68,12 @@ not working with them, though.
 * `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET`: These are used for Discord OAuth logins and
   correspond with the relevant settings in the Discord developer area.
 * `API_KEY`: Used to authenticate requests against the API.
+
+Tips
+----
+
+* When working with templates, you can use `{{ role("Role") }}` to insert a span containing the given
+  role name, coloured appropriately to match the role colour on Discord.
+  
+  If this isn't flexible enough for you, you can use the classes defined in
+  [generated/roles.css](https://kotlindiscord.com/generated/roles.css).
