@@ -1,4 +1,5 @@
 {% set page = "rules" %}
+{% set page = "rules" %}
 {% set category = "docs" %}
 
 {% extends 'components/base.html.peb' %}
@@ -261,7 +262,7 @@
 
             <p>
                 To report rule-breaking behaviour in public, mention the
-                <span class="ui text orange">@Moderators</span> role directly in the channel
+                {{ role("Moderator") }} role directly in the channel
                 &mdash; someone will be along as soon as possible. Alternatively, send a private
                 message to the ModMail bot to open a private support thread.
             </p>

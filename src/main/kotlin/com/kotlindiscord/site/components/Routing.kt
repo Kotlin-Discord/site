@@ -1,9 +1,11 @@
 package com.kotlindiscord.site.components
 
 import com.kotlindiscord.site.routes.api.*
+import com.kotlindiscord.site.routes.rolesCss
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
+import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.resources
 import io.ktor.http.content.static
@@ -49,11 +51,24 @@ fun apiRoute(body: suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Any?
     }
 }
 
-fun template(path: String): suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit {
+fun template(
+    path: String,
+    data: Map<String, Any> = mapOf()
+): suspend PipelineContext<Unit, ApplicationCall>.(Unit) -> Unit {
     return {
-        call.respond(PebbleContent(path, mapOf()))
+        call.respond(PebbleContent(path, data))
     }
 }
+
+suspend fun template(
+    path: String,
+    data: Map<String, Any> = mapOf(),
+    contentType: ContentType = ContentType.Text.Html,
+    call: ApplicationCall
+) {
+    call.respond(PebbleContent(path, data, contentType = contentType))
+}
+
 
 fun installRouting(app: Application) {
     app.routing {
@@ -62,6 +77,7 @@ fun installRouting(app: Application) {
         }
 
         get("/", template("pages/index.html.peb"))
+        get("/generated/roles.css", rolesCss)
 
         get("/api", apiIndex)
 

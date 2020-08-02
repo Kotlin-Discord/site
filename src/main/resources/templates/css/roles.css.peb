@@ -1,0 +1,4 @@
+{# @pebvariable name="roles" type="List<com.kotlindiscord.api.client.models.RoleModel>" #}
+{% for role in roles %}
+.color-{{ role.name }} {color: #{{ role.colour }} !important;}
+{% endfor %}

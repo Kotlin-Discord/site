@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="/static/semantic.css"/>
     <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="/generated/roles.css"/>
     <script type="text/javascript" src="/static/jquery.js"></script>
     <script type="text/javascript" src="/static/semantic.js"></script>
 </head>
