@@ -11,6 +11,7 @@ import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.util.getOrFail
 import org.jetbrains.exposed.dao.exceptions.EntityNotFoundException
+import org.jetbrains.exposed.sql.SizedCollection
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 
@@ -19,6 +20,7 @@ val apiRolesDelete = apiRoute {
         val id = call.parameters.getOrFail("id").toLong()
         val role = Role.getOrNull(id) ?: return@newSuspendedTransaction call.respond(HttpStatusCode.NotFound)
 
+        role.holders.forEach { it.roles = SizedCollection(it.roles.toList().filter { entry -> entry.id != role.id }) }
         role.delete()
     }
 

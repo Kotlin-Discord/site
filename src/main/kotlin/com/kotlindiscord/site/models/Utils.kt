@@ -37,6 +37,7 @@ fun fromDB(user: User): UserModel {
         discriminator = user.discriminator,
         avatarUrl = user.avatarUrl,
 
-        roles = user.roles.map { it.id.value }.toSet()
+        roles = user.roles.map { it.id.value }.toSet(),
+        present = user.present
     )
 }
