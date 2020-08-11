@@ -10,6 +10,7 @@ import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
+import io.ktor.util.KtorExperimentalAPI
 import io.ktor.util.getOrFail
 import org.jetbrains.exposed.dao.exceptions.EntityNotFoundException
 import org.jetbrains.exposed.sql.SizedCollection
@@ -22,6 +23,7 @@ val apiUsersGet = apiRoute {
     }
 }
 
+@KtorExperimentalAPI
 val apiUsersGetSingle = apiRoute {
     newSuspendedTransaction {
         val id = call.parameters.getOrFail("id").toLong()
@@ -42,7 +44,7 @@ val apiUsersPost = apiRoute {
             user.discriminator = model.discriminator
             user.avatarUrl = model.avatarUrl
 
-            val givenRoles = user.roles.map { it.id.value }
+            val givenRoles = user.roles.map { it.id.value }.toSet()
             val roles = user.roles.filter { model.roles.contains(it.id.value) }.toMutableList()
 
             for (roleId in model.roles - givenRoles) {

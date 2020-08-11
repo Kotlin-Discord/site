@@ -29,6 +29,11 @@ repositories {
         name = 'KotDis'
         url = 'https://maven.kotlindiscord.com/repository/maven-public/'
     }
+
+    maven {
+        name = 'JitPack'  // I wish some developers weren't so dang lazy
+        url = 'https://jitpack.io'
+    }
 }
 
 def ktorVersion = "1.3.2"
@@ -36,6 +41,8 @@ def ktorVersion = "1.3.2"
 dependencies {
     implementation "com.kotlindiscord.database:database:+"
     implementation "com.kotlindiscord.api:client:+"
+
+    implementation "com.github.zensum:ktor-sentry-feature:-SNAPSHOT"
 
     implementation "io.ktor:ktor-client-apache:$ktorVersion"
 
