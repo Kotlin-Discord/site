@@ -38,8 +38,8 @@ val apiUsersGetSingle = apiRoute {
 val apiUsersPost = apiRoute {
     val model = call.receive<UserModel>()
 
-    newSuspendedTransaction {
-        try {
+    return@apiRoute try {
+        newSuspendedTransaction {
             val user = User[model.id]
 
             user.userName = model.username
@@ -59,9 +59,22 @@ val apiUsersPost = apiRoute {
             }
 
             user.roles = SizedCollection(roles)
-        } catch (e: EntityNotFoundException) {
+
+            null  // Return nothing if we're successful
+        }
+    } catch (e: EntityNotFoundException) {
+        newSuspendedTransaction {
             logger.info(e) { "Entity not found: ${model.id}" }
 
+            User.new(model.id) {
+                userName = model.username
+                discriminator = model.discriminator
+                avatarUrl = model.avatarUrl
+            }
+        }
+
+        newSuspendedTransaction {  // Exposed has a stupid bug that requires us to add roles after user creation
+            val user = User[model.id]
             val roles = mutableListOf<Role>()
 
             for (roleId in model.roles) {
@@ -73,15 +86,9 @@ val apiUsersPost = apiRoute {
                 roles.add(role)
             }
 
-            User.new(model.id) {
-                userName = model.username
-                discriminator = model.discriminator
-                avatarUrl = model.avatarUrl
+            user.roles = SizedCollection(roles)
 
-                this.roles = SizedCollection(roles)
-            }
+            null  // Return nothing if we're successful
         }
     }
-
-    null
 }
