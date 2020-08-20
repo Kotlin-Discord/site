@@ -6,15 +6,17 @@ import com.kotlindiscord.database.User
 import com.kotlindiscord.database.getOrNull
 import com.kotlindiscord.site.components.apiRoute
 import com.kotlindiscord.site.models.fromDB
-import io.ktor.application.call
-import io.ktor.http.HttpStatusCode
-import io.ktor.request.receive
-import io.ktor.response.respond
-import io.ktor.util.KtorExperimentalAPI
-import io.ktor.util.getOrFail
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
+import io.ktor.util.*
+import mu.KotlinLogging
 import org.jetbrains.exposed.dao.exceptions.EntityNotFoundException
 import org.jetbrains.exposed.sql.SizedCollection
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
+
+private val logger = KotlinLogging.logger {}
 
 
 val apiUsersGet = apiRoute {
@@ -58,6 +60,8 @@ val apiUsersPost = apiRoute {
 
             user.roles = SizedCollection(roles)
         } catch (e: EntityNotFoundException) {
+            logger.info(e) { "Entity not found: ${model.id}" }
+
             val roles = mutableListOf<Role>()
 
             for (roleId in model.roles) {

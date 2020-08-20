@@ -10,9 +10,12 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.util.getOrFail
+import mu.KotlinLogging
 import org.jetbrains.exposed.dao.exceptions.EntityNotFoundException
 import org.jetbrains.exposed.sql.SizedCollection
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
+
+private val logger = KotlinLogging.logger {}
 
 
 val apiRolesDelete = apiRoute {
@@ -43,6 +46,8 @@ val apiRolesPost = apiRoute {
             role.name = model.name
             role.colour = model.colour
         } catch (e: EntityNotFoundException) {
+            logger.info(e) { "Entity not found: ${model.id}" }
+
             Role.new(model.id) {
                 name = model.name
                 colour = model.colour
