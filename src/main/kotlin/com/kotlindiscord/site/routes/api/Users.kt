@@ -38,8 +38,8 @@ val apiUsersGetSingle = apiRoute {
 val apiUsersPost = apiRoute {
     val model = call.receive<UserModel>()
 
-    return@apiRoute try {
-        newSuspendedTransaction {
+    newSuspendedTransaction {
+        try {
             val user = User[model.id]
 
             user.userName = model.username
@@ -61,9 +61,7 @@ val apiUsersPost = apiRoute {
             user.roles = SizedCollection(roles)
 
             null  // Return nothing if we're successful
-        }
-    } catch (e: EntityNotFoundException) {
-        newSuspendedTransaction {
+        } catch (e: EntityNotFoundException) {
             logger.debug(e) { "Entity not found: ${model.id}" }
 
             User.new(model.id) {
