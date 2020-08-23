@@ -64,16 +64,16 @@ val apiUsersPost = apiRoute {
         }
     } catch (e: EntityNotFoundException) {
         newSuspendedTransaction {
-            logger.info(e) { "Entity not found: ${model.id}" }
+            logger.debug(e) { "Entity not found: ${model.id}" }
 
             User.new(model.id) {
                 userName = model.username
                 discriminator = model.discriminator
                 avatarUrl = model.avatarUrl
             }
-        }
 
-        newSuspendedTransaction {  // Exposed has a stupid bug that requires us to add roles after user creation
+            commit()  // Exposed has a stupid bug that requires us to add roles after user creation is committed
+
             val user = User[model.id]
             val roles = mutableListOf<Role>()
 
