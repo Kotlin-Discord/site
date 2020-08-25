@@ -45,6 +45,7 @@ val apiUsersPost = apiRoute {
             user.userName = model.username
             user.discriminator = model.discriminator
             user.avatarUrl = model.avatarUrl
+            user.present = model.present
 
             val givenRoles = user.roles.map { it.id.value }.toSet()
             val roles = user.roles.filter { model.roles.contains(it.id.value) }.toMutableList()
@@ -68,6 +69,7 @@ val apiUsersPost = apiRoute {
                 userName = model.username
                 discriminator = model.discriminator
                 avatarUrl = model.avatarUrl
+                present = model.present
             }
 
             commit()  // Exposed has a stupid bug that requires us to add roles after user creation is committed
