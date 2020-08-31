@@ -38,6 +38,7 @@ fun Application.main() {
     // Install each component we need to use
     installAuth(this)
     installJson(this)
+    installLogging(this)
     installPebble(this)
     installSessions(this)
     installWebsockets(this)

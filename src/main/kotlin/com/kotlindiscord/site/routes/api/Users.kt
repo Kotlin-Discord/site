@@ -37,11 +37,13 @@ val apiUsersGetSingle = apiRoute {
 val apiUsersPost = apiRoute {
     val model = call.receive<UserModel>()
 
+    logger.info { "User POSTed: ${model.id}" }
+
     newSuspendedTransaction {
         var user = User.getOrNull(model.id)
 
         if (user == null) {  // User doesn't exist, so we need to create it
-            logger.debug { "Entity not found: ${model.id}" }
+            logger.info { "User not found: ${model.id}" }
 
             User.new(model.id) {
                 userName = model.username
@@ -51,6 +53,8 @@ val apiUsersPost = apiRoute {
             }
 
             commit()  // Exposed has a stupid bug that requires us to add roles after user creation is committed
+
+            logger.info { "User created: ${model.id}" }
 
             user = User[model.id]
             val roles = mutableListOf<Role>()
@@ -66,8 +70,12 @@ val apiUsersPost = apiRoute {
 
             user.roles = SizedCollection(roles)
 
+            logger.info { "${roles.size} roles set for user: ${model.id}" }
+
             null  // Return nothing if we're successful
         } else {  // User exists, so we should update it
+            logger.info { "User found: ${model.id}" }
+
             user.userName = model.username
             user.discriminator = model.discriminator
             user.avatarUrl = model.avatarUrl
