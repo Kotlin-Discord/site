@@ -4,11 +4,13 @@ import com.kotlindiscord.api.client.models.InfractionFilterModel
 import com.kotlindiscord.api.client.models.InfractionModel
 import com.kotlindiscord.database.*
 import com.kotlindiscord.site.components.apiRoute
+import com.kotlindiscord.site.infractionsMutex
 import com.kotlindiscord.site.models.fromDB
-import io.ktor.application.call
-import io.ktor.http.HttpStatusCode
-import io.ktor.request.receive
-import io.ktor.response.respond
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
+import kotlinx.coroutines.sync.withLock
 import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.andWhere
 import org.jetbrains.exposed.sql.or
@@ -74,43 +76,45 @@ val apiInfractionsPost = apiRoute {
     val model = call.receive<InfractionModel>()
 
     return@apiRoute newSuspendedTransaction {
-        val infractor = User.getOrNull(model.infractor) ?: return@newSuspendedTransaction call.respond(
-            HttpStatusCode.NotFound,
-            mapOf("error" to "Unknown infractor ID: ${model.infractor}")
-        )
-
-        val user = User.getOrNull(model.user) ?: return@newSuspendedTransaction call.respond(
-            HttpStatusCode.NotFound,
-            mapOf("error" to "Unknown user ID: ${model.user}")
-        )
-
-        if (model.id != null) {
-            val infraction = Infraction.getOrNull(model.id!!) ?: return@newSuspendedTransaction call.respond(
+        infractionsMutex.withLock {  // To prevent concurrent modifications
+            val infractor = User.getOrNull(model.infractor) ?: return@newSuspendedTransaction call.respond(
                 HttpStatusCode.NotFound,
-                mapOf("error" to "Unknown infraction ID: ${model.infractor}")
+                mapOf("error" to "Unknown infractor ID: ${model.infractor}")
             )
 
-            infraction.created = model.created
-            infraction.expires = model.expires
-
-            infraction.reason = model.reason
-            infraction.type = InfractionTypes.valueOf(model.type.type)
-
-            infraction.infractor = infractor
-            infraction.user = user
-        } else {
-            return@newSuspendedTransaction fromDB(
-                Infraction.new {
-                    created = model.created
-                    expires = model.expires
-
-                    reason = model.reason
-                    type = InfractionTypes.valueOf(model.type.type)
-
-                    this.infractor = infractor
-                    this.user = user
-                }
+            val user = User.getOrNull(model.user) ?: return@newSuspendedTransaction call.respond(
+                HttpStatusCode.NotFound,
+                mapOf("error" to "Unknown user ID: ${model.user}")
             )
+
+            if (model.id != null) {
+                val infraction = Infraction.getOrNull(model.id!!) ?: return@newSuspendedTransaction call.respond(
+                    HttpStatusCode.NotFound,
+                    mapOf("error" to "Unknown infraction ID: ${model.infractor}")
+                )
+
+                infraction.created = model.created
+                infraction.expires = model.expires
+
+                infraction.reason = model.reason
+                infraction.type = InfractionTypes.valueOf(model.type.type)
+
+                infraction.infractor = infractor
+                infraction.user = user
+            } else {
+                return@newSuspendedTransaction fromDB(
+                    Infraction.new {
+                        created = model.created
+                        expires = model.expires
+
+                        reason = model.reason
+                        type = InfractionTypes.valueOf(model.type.type)
+
+                        this.infractor = infractor
+                        this.user = user
+                    }
+                )
+            }
         }
     }
 }
