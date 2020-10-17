@@ -83,6 +83,13 @@ jobs:
           registry: docker.kotlindiscord.com
           username: ${{ secrets.MAVEN_USER }}
           password: ${{ secrets.MAVEN_PASSWORD }}
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USER }}
+          password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and Push
         uses: docker/build-push-action@v2
@@ -92,6 +99,7 @@ jobs:
           push: true
           tags: |
             docker.kotlindiscord.com/site:latest
+            ghcr.io/kotlin-discord/site:latest
 
       - name: Deploy to production
         run: |
