@@ -70,7 +70,7 @@
                         </div>
                         <div class="ui icon button" data-tooltip="Pay what you want" data-inverted="">
                             <i class="dollar icon"></i>
-                            Free - 25
+                            5 - 25
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         </div>
                         <div class="ui icon button" data-tooltip="Paid ($30 - $60)" data-inverted="">
                             <i class="dollar icon"></i>
-                            30 - 60
+                            60
                         </div>
                     </div>
                 </div>
